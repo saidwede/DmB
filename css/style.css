@@ -1,0 +1,236 @@
+@font-face {
+    font-family: minora-normal;
+    src: url(../fonts/Minora/Minora-Trial-Regular.otf);
+}
+@font-face {
+    font-family: minora-bold;
+    src: url(../fonts/Minora/Minora-Trial-Bold.otf);
+    font-weight: bold;
+}
+@font-face {
+    font-family: minora-bolder;
+    src: url(../fonts/Minora/Minora-Trial-Black.otf);
+    font-weight: bolder;
+}
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: minora-normal;
+
+}
+.tool-bar{
+    height: 91px;
+    width: 100%;
+    background-color: #fcb913;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.tool-bar-left-group{
+    margin-left: 90px;
+}
+.tool-bar-right-group{
+    margin-right: 90px;
+}
+.top-btn{
+    padding: 24px 16px 24px 16px;
+    border-radius: 8px 8px 0px 0px;
+    font-size: 18px;
+    line-height: 17px;
+    height: 75px;
+    border: none;
+    gap: 10px;
+}
+.btn-shadow{
+    border-right: solid #000000 1px;
+}
+.btn-transparent{
+    background-color: rgba(0, 0, 0, 0.361);
+    color: #ffffff;
+}
+.btn-blue{
+    background-color: #0097B2;
+    color: white;
+}
+.btn-white{
+    color:#E3A711;
+    background-color: #ffffff;
+}
+.logo-img{
+    align-self: center;
+}
+.logo-img img{
+    height: 66px;
+    width: auto;
+}
+.banner{
+    position: relative;
+    display: flex;
+}
+.banner .bg-img{
+    width: 100%;
+    height: auto;
+}
+.std-btn{
+    color: white;
+    border: none;
+    background-color: transparent;
+    padding: 32px 48px 32px 48px;
+    font-size: 24px;
+    border-radius: 64px;
+    font-family: minora-bolder;
+    box-shadow: inset rgba(0, 0, 0, 0.25) 0px -10px 0px;
+}
+.btn-green{
+    color: #ffffff;
+    background-color: #0097B2;
+}
+.btn-orange{
+    color: #ffffff;
+    background-color: #FCB913;
+}
+.banner-content{
+    width: 60%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -80%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.welcome-text{
+    font-size: 70px;
+    color: #ffffff;
+    text-align: center;
+    font-family: minora-bolder;
+    text-shadow: rgba(0, 0, 0, 0.32) 0px 0px 10px;
+}
+.banner .std-btn{
+    margin-top: 40px;
+}
+.home-section{
+    padding: 10% 20%;
+}
+.green-section{
+    background-color: #0097B2;
+}
+.orange-section{
+    background-color: #FCB913;
+}
+.section-title{
+    font-size: 100px;
+    line-height: 99px;
+    font-family: minora-bolder;
+}
+.section-content{
+    font-size: 24px;
+    margin: 55px 0px;
+}
+.green-section .section-content, .green-section .section-title{
+    color: #ffffff;
+}
+.pricing-cards{
+    display: flex;
+    justify-content: space-between;
+}
+.pricing-section h2, .team-section h2{
+    text-align: center;
+    padding-bottom: 50px;
+}
+.pricing-card{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: #000000 7px 7px 0px;
+    padding: 50px 0px;
+    width: 424px;
+    height: 573px;
+    border-radius: 24px;
+    color: #ffffff;
+    text-align: center;
+    font-size: 24px;
+    font-family: minora-bolder;
+    font-weight: bolder;
+    position: relative;
+}
+.pricing-card p{
+    padding: 0px 25px;
+}
+.green-card{
+    background-color: #0097B2;
+}
+.orange-card{
+    background-color: #FCB913;
+}
+.pricing-card .price{
+    font-size: 48px;
+    font-family: minora-bolder;
+    margin-top: 15px;
+    margin-bottom: 40px;
+}
+.orange-card .price{
+    color: #0097B2;
+}
+.green-card .price{
+    color: #FCB913;
+}
+.pricing-card button{
+    padding: 15px 48px 15px 48px;
+    margin-top: 150px;
+    width: 250px;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.team-section{
+    padding: 150px 100px;
+}
+.team-members{
+    display: flex;
+    justify-content: space-between;
+}
+.team-member{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: minora-bolder;
+}
+.team-member .team-member_name{
+    font-size: 24px;
+    font-family: minora-bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.team-member .team-member_role{
+    font-size: 16px;
+    color: #ffffff;
+    font-family: minora-bold;
+}
+.qw-card{
+    background-color: #0097B2;
+    color: white;
+    border: none;
+    padding: 32px 48px 32px 48px;
+    font-size: 24px;
+    border-radius: 64px;
+    font-family: minora-bolder;
+    box-shadow:#000000 0px 5px 0px;
+    margin-bottom: 20px;
+    
+}
+.qw-card .question{
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.answer{
+    display: none;
+}
+.qw-card.is-active .answer{
+    display: inline;
+}
+.qw-card.is-active .caret-down{
+    display: none;
+}
