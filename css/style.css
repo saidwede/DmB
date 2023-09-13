@@ -18,9 +18,15 @@
     font-family: minora-normal;
 
 }
+a{
+    text-decoration: none;
+}
+.burger-menu-btn{
+    display: none;
+}
 .tool-bar{
     height: 91px;
-    width: 100%;
+    width: 100vw;
     background-color: #fcb913;
     display: flex;
     justify-content: space-between;
@@ -261,6 +267,7 @@
 }
 .form-section--right .form-section--title{
     margin-bottom: 10px;
+    margin-top: 30px;
 }
 .form-section{
     padding-bottom: 60px;
@@ -280,12 +287,16 @@
 }
 .form-section--input{
     border: solid #ffffff;
+    caret-color: #FFFFFF;
     background-color: transparent;
     height: 50px;
     width: 100%;
     border-radius: 64px;
     outline: none;
     padding-left: 30px;
+    color: #FFFFFF;
+    font-family: minora-bold;
+    font-size: 16px;
 }
 .form-section--input::placeholder{
     color: #FCB913;
@@ -328,6 +339,155 @@ textarea.form-section--input{
     justify-content: center;
     color: #FFFFFF;
 }
-.footer-content p{
+.footer-content .form-section--title{
     margin-top: 10px;
+}
+
+@media screen and (max-width: 769px) {
+    .tool-bar{
+        height: 64px;
+        align-items: center;
+    }
+    .tool-bar-right-group, .tool-bar-left-group{
+        display: none;
+    }
+    .burger-menu-btn{
+        width: 46px;
+        height: 46px;
+        background-color: #0097B2;
+        border-radius: 10px;
+        box-shadow:#000000 0px 5px 0px;
+        margin-right: 20px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        color: #FFFFFF;
+        font-size: 30px;
+    }
+    .tool-bar .logo-img{
+        margin-left: 20px;
+    }
+    .tool-bar .logo-img img{
+        height: 40px;
+    }
+    .banner{
+        width: 100vw;
+        overflow: hidden;
+        position: relative;
+        height: 600px;
+    }
+    .banner .bg-img{
+        width: auto;
+        height: 600px;
+        right: 0px;
+        position: absolute;
+        bottom: 0px;
+    }
+    .banner-content{
+        transform: translate(-50%, -70%);
+        width: calc(100% - 20px);
+    }
+    .std-btn{
+        height: 54px;
+        padding: 0px;
+        font-size: 18px;
+        width: 100%;
+    }
+    .welcome-text{
+        font-size: 48px;
+    }
+    .banner .std-btn {
+        margin-top: 18px;
+        height: 64px;
+        padding: 0px 0px;
+        width: 100%;
+    }
+    .section-title{
+        font-size: 40px;
+        line-height: 40px;
+    }
+    .home-section{
+        padding: 10% 20px;
+    }
+    .section-content{
+        font-size: 18px;
+        font-family: minora-bold;
+    }
+    .pricing-cards{
+        flex-direction: column;
+    }
+    .pricing-card{
+        width: 100%;
+        margin-bottom: 45px;
+        height: initial;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .pricing-card .std-btn{
+        margin-top: 30px;
+        position: static;
+        align-self: center;
+        transform: none;
+    }
+    .team-members{
+        flex-wrap: wrap;
+    }
+    .team-member{
+        width: calc(50% - 10px);
+        margin-bottom: 30px;
+    }
+    .team-member img{
+        width: 100%;
+    }
+    .qw-card{
+        padding: 0px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+    .qw-card.is-active{
+        height: auto;
+        border-radius: 30px;
+    }
+    .qw-card.is-active .question, .qw-card.is-active .answer{
+        font-family: minora-bold;
+        font-size: 16px;
+        display: inline;
+    }
+    .qw-card p{
+        padding: 20px 20px;
+        width: 100%;
+    }
+    .qw-card .question{
+        font-size: 18px;
+    }
+    .form-section--container{
+        flex-direction: column;
+    }
+    .form-section--left{
+        width: 100%;
+    }
+    .form-section--right{
+        width: 100%;
+    }
+    .form-section--input{
+        width: calc(100% - 30px);
+    }
+    .form-section .section-title{
+        margin-bottom: 60px;
+        margin-top: 20px;
+    }
+    .form-section .std-btn{
+        height: 64px;
+        width: 100%;
+        padding: 0px;
+        box-shadow: inset rgba(0, 0, 0, 0.25) 0px -5px 0px;
+        margin-bottom: 30px;
+    }
+}
+@media screen and (max-width: 400px) {
+    .banner .bg-img{
+        transform: translateX(10%);
+    }
 }
