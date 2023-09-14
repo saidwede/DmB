@@ -18,10 +18,13 @@
     font-family: minora-normal;
 
 }
+ul{
+    list-style: none;
+}
 a{
     text-decoration: none;
 }
-.burger-menu-btn{
+.burger-menu-btn, .mobile-top-menu{
     display: none;
 }
 .tool-bar{
@@ -58,10 +61,6 @@ a{
     background-color: #0097B2;
     color: white;
 }
-.btn-white{
-    color:#E3A711;
-    background-color: #ffffff;
-}
 .logo-img{
     align-self: center;
 }
@@ -95,12 +94,16 @@ a{
     color: #ffffff;
     background-color: #FCB913;
 }
+.btn-white{
+    color:#E3A711;
+    background-color: #ffffff;
+}
 .banner-content{
-    width: 60%;
+    width: 100%;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -80%);
+    transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -138,7 +141,7 @@ a{
 }
 .pricing-cards{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 .pricing-section h2, .team-section h2{
     text-align: center;
@@ -149,6 +152,7 @@ a{
     flex-direction: column;
     align-items: center;
     box-shadow: #000000 7px 7px 0px;
+    margin: 0px 40px;
     padding: 50px 0px;
     width: 424px;
     height: 573px;
@@ -199,9 +203,13 @@ a{
 }
 .team-member{
     display: flex;
+    width: calc(20% - 20px);
     flex-direction: column;
     align-items: center;
     font-family: minora-bolder;
+}
+.team-member img{
+    width: 100%;
 }
 .team-member .team-member_name{
     font-size: 24px;
@@ -229,8 +237,7 @@ a{
     box-shadow:#000000 0px 5px 0px;
     margin-bottom: 20px;
     overflow: hidden;
-    transition: 0.5s;
-    
+    transition: 0.5s;   
 }
 .qw-card .question{
     display: inline-flex;
@@ -240,8 +247,6 @@ a{
 }
 .answer{
     display: none;
-}
-.qw-card.is-active{
 }
 .qw-card.is-active .answer{
     display: inline;
@@ -342,7 +347,14 @@ textarea.form-section--input{
 .footer-content .form-section--title{
     margin-top: 10px;
 }
-
+@media  screen and (max-width: 900px) {
+    .home-section {
+        padding: 10% 50px;
+    }
+    .form-section--right {
+        width: calc(50% - 60px);
+    }
+}
 @media screen and (max-width: 769px) {
     .tool-bar{
         height: 64px;
@@ -388,6 +400,7 @@ textarea.form-section--input{
         width: calc(100% - 20px);
     }
     .std-btn{
+        display: inline-block;
         height: 54px;
         padding: 0px;
         font-size: 18px;
@@ -418,7 +431,7 @@ textarea.form-section--input{
     }
     .pricing-card{
         width: 100%;
-        margin-bottom: 45px;
+        margin: 0px 0px 45px 0px;
         height: initial;
         display: flex;
         flex-direction: column;
@@ -447,7 +460,6 @@ textarea.form-section--input{
         align-items: center;
     }
     .qw-card.is-active{
-        height: auto;
         border-radius: 30px;
     }
     .qw-card.is-active .question, .qw-card.is-active .answer{
@@ -478,12 +490,59 @@ textarea.form-section--input{
         margin-bottom: 60px;
         margin-top: 20px;
     }
-    .form-section .std-btn{
-        height: 64px;
-        width: 100%;
-        padding: 0px;
+    .std-btn{
         box-shadow: inset rgba(0, 0, 0, 0.25) 0px -5px 0px;
+    }
+    .form-section{
+        padding: 10% 20px;
+    }
+    .mobile-top-menu nav{
+        margin-top: 30px;
+    }
+    .mobile-top-menu{
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        z-index: 99;
+        top: 0px;
+        left: 0px;
+        width: 100vw;
+        background-color: #FCB913;
+        overflow: hidden;
+        height: 0px;
+        transition: 0.5s ease-in-out;
+    }
+    .mobile-top-menu-overlay{
+        background-color: #0000006d;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        z-index: 98;
+        display: none;
+    }
+    .mobile-top-menu u{
+        display: flex;
+        flex-direction: column;
+    }
+    .mobile-top-menu .std-btn{
+        width: calc(100% - 40px);
+        margin-bottom: 10px;
+        height: 40px;
+        font-size: 18px;
+    }
+    .menu-btn-link a{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+    .mobile-top-link{
+        margin-left: 20px;
         margin-bottom: 30px;
+    }
+    .mobile-top-link a{
+        font-size: 18px;
+        color: #ffffff;
+        font-family: minora-bold;
     }
 }
 @media screen and (max-width: 400px) {
