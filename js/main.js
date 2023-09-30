@@ -15,3 +15,19 @@ $(document).on("click", ".mobile-top-menu-overlay", function(){
     $(".mobile-top-menu").css("height", "0px");
     $(".mobile-top-menu-overlay").css("display", "none");
 })
+$(document).on("click", ".drop-down-toggle", function(){
+    $(this).toggleClass('is-active');
+});
+$(document).on("click", "*", function(event){
+    if (!event.target.matches('.drop-down-toggle, .drop-down-toggle > *')){
+        $(".drop-down-toggle").removeClass("is-active");
+    }
+});
+$(document).on("click", ".notif", function(){
+    $(".lib").css("filter","blur(10px)");
+    $(".modal").css("display", "block");
+});
+$(document).on("click", ".modal", function(){
+    $(".lib").css("filter","none");
+    $(".modal").css("display", "none");
+})

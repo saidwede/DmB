@@ -452,6 +452,244 @@ option[value=""][disabled] {
     display: inline-block;
     color: #676767;
 }
+.lib{
+    background-color: #0097b244;
+    padding-bottom: 200px;
+    position: relative;
+}
+.lib-container{
+    padding: 0px 110px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.lib h1{
+    text-align: center;
+    font-size: 48px;
+    font-family: minora-bolder;
+    color: #00353E;
+}
+.lib-tool-bar{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 84px;
+    align-items: center;
+    position: relative;
+}
+.lib-tool-bar .notif{
+    color: #000000;
+    font-size: 30px;
+}
+.lib-tool-bar .profil-button {
+    color: #000000;
+    font-size: 20px;
+}
+.lib-tool-bar .logo-img img{
+    width: 128px;
+    height: auto;
+}
+.lib-tool-bar .days-left{
+    background-color: #FFB4B4;
+    border: solid 1px #C80000;
+    color: #C80000;
+    height: 35px;
+    width: 158px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 38px;
+    font-size: 16px;
+    font-family: minora-bold;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.lib-tool-bar button{
+    height: 48px;
+    font-size: 16px;
+    font-family: minora-bold;
+    color: #000000;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.lib-tool-bar-actions{
+    display: inline-flex;
+    align-items: center;
+    
+}
+.profil-pc{
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+    border-radius: 50%;
+    font-family: minora-bold;
+    padding: auto;
+    background-color: #0097B2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+    color: #ffffff;
+}
+.notif, .profil-button{
+    margin-right: 40px;
+}
+.griotte-img{
+    display: flex;
+    width: 620px;
+    justify-content: center;
+    border-bottom: solid 1px #000000;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+.griotte-img img{
+    width: 234px;
+    height: auto;
+}
+.history-container{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    row-gap: 40px;
+    column-gap: 30px;
+    width: 660px;
+}
+.history img{
+    width: 100%;
+    height: auto;
+}
+.history .title, .history .sub-title{
+    display: block;
+    text-align: center;
+    font-size: 18px;
+}
+.history .title{
+    color: #000000;
+    font-family: minora-bolder;
+}
+.history .sub-title{
+    color: #00000088;
+    font-family: minora-bold;
+}
+.lib header, .lib main{
+    position: relative;
+    z-index: 2;
+}
+.lib header{
+    z-index: 5;
+}
+.white-circle{
+    width: 2000px;
+    height: 1500px;
+    border-radius: 100%;
+    background-color: #ffffff;
+    position: fixed;
+    top: 300px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-10deg);
+    z-index: 1;
+}
+.drop-down-menu{
+    width: 200px;
+    padding: 20px;
+    background-color: #0097B2;
+    position: absolute;
+    top: 100%;
+    right: 0px;
+    border-radius: 20px;
+    display: none;
+    flex-direction: column;
+    z-index: 5;
+}
+#sm-signout{
+    display: none;
+}
+.drop-down-item:nth-of-type(1){
+    margin-top: 0px;
+}
+.drop-down-item{
+    margin-top: 20px;
+    font-family: minora-bolder;
+    color: #ffffff;
+    font-size: 16px;
+}
+.drop-down-toggle{
+    position: relative;
+}
+.drop-down-toggle.is-active .drop-down-menu{
+    display: flex;
+}
+.text-orange{
+    color: #FCB913;
+}
+.modal{
+    position: fixed;
+    top: 0px;
+    height: 0px;
+    width: 100vw;
+    height: 100vh;
+    z-index: 6;
+    display: none;
+    background-color: #0000004d;
+}
+.modal-content{
+    width: 725px;
+    padding: 50px 0px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+}
+.modal-content *{
+    text-align: center;
+}
+.modal-content h2{
+    color: #C80000;
+    font-family: minora-bolder;
+    font-size: 64px;
+}
+.modal-message{
+    font-size: 32px;
+    color: #00353E;
+    font-family: minora-bolder;
+    padding: 0px 70px;
+    margin: 20px 0px;
+}
+.modal-message-plus{
+    color: #546881;
+    font-size: 18px;
+}
+.modal button{
+    height: 64px;
+    width: 275px;
+    padding: 0px;
+    margin-top: 40px;
+}
+.card-contaner{
+    background-color: #ffffff;
+    padding: 80px 0px;
+    border-radius: 30px;
+    width: 100%;
+}
+.card-contaner h1{
+    margin-bottom: 70px;
+}
+#bnt-back{
+    margin-left: 40px;
+    margin-bottom: 40px;
+}
+.profile-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
 @media  screen and (max-width: 900px) {
     .home-section {
         padding: 10% 50px;
@@ -668,6 +906,74 @@ option[value=""][disabled] {
     .login-container {
         background-color: #0097b244;
         padding: 50px 20px;
+    }
+    .history-container{
+        width: 100%;
+        grid-template-columns: auto auto;
+    }
+    .lib-container{
+        padding: 0px 20px;
+    }
+    .griotte-img{
+        width: 100%;
+    }
+    .lib h1{
+        font-size: 40px;
+    }
+    .lib-tool-bar{
+        padding: 20px 20px 100px 20px;
+    }
+    #lg-signout{
+        display: none;
+    }
+    .lib-tool-bar .days-left{
+        width: calc(100% - 60px);
+        top: 120px;
+        transform: translateX(-50%);
+    }
+    .notif{
+        margin-right: 20px;
+        font-size: 32px;
+    }
+    .profil-button{
+        margin-right: 0px;
+    }
+    .profil-button .profil-pc{
+        height: 32px;
+        width: 32px;
+    }
+    .white-circle{
+        top: 350px;
+    }
+    #sm-signout{
+        display: flex;
+    }
+    .modal-content{
+        width: calc(100% - 40px);
+    }
+    .modal-message{
+        padding: 0px 20px;
+        font-size: 24px;
+    }
+    .modal{
+        width: 100vw;
+    }
+    .card-contaner .pricing-cards{
+        width: calc(100% - 40px);
+    }
+    .card-contaner{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px 0px;
+    }
+    .card-contaner h1 {
+        margin-bottom: 34px;
+    }
+    #bnt-back{
+        margin-left: 0px;
+        width: 200px;
+        margin-bottom: 30px;
     }
 }
 @media screen and (max-width: 400px) {

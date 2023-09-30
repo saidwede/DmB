@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bibliothèque</title>
+    <title>Profile</title>
     <link rel="stylesheet" href="../css/style.css">
     <meta name="theme-color" content="#c0e3ec"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -11,7 +11,6 @@
 </head>
 <body>
     <div class="lib">
-        <div class="white-circle"></div>
         <header>
             <div class="lib-tool-bar">
                 <a href="../bibliotheque/" class="logo-img">
@@ -42,51 +41,37 @@
             </div>
         </header>
         <main class="lib-container">
-            <h1>Choisi une histoire</h1>
-            <div class="griotte-img">
-                <img src="../img/griotte.png" alt="">
-            </div>
-            <div class="history-container">
-                <div class="history">
-                    <img src="../img/book.png" alt="">
-                    <span class="title">Le roi Behanzin</span>
-                    <span class="sub-title">1808 - 1864</span>
+            <div class="card-contaner">
+                <a href="../bibliotheque/">
+                    <button class="std-btn btn-green" id="bnt-back">
+                        <i class="fa-solid fa-chevron-left" style="margin-right: 10px;"></i><span>Retour</span>
+                    </button>
+                </a>
+                <h1>Modifie ton profile</h1>
+                <div class="profile-container">
+                    <h2 class="form-section-title">Photo de profile</h2>
+                    <img src="../img/person.png" alt="" srcset="">
+                    <button class="std-btn btn-green">Changer la photo de profile</button>
+                    <form action="." class="login-form" method="post">
+                        <label for="" class="login-input-label">
+                            <span class="login-input-cation">Nom</span>
+                            <input type="text" name="last_name" id="last_name" placeholder="Exemple: kiki" required>
+                        </label>
+                        <label for="" class="login-input-label">
+                            <span class="login-input-cation">Prénoms</span>
+                            <input type="text" name="first_name" id="first_name" placeholder="Exemple: Banbou" required>
+                        </label>
+                        <label for="" class="login-input-label">
+                            <span class="login-input-cation">Date de naissance</span>
+                            <input type="date" name="birth_date" id="birth_date" placeholder="Exemple: 09/12/2015" required>
+                        </label>
+                        <button type="submit" class="std-btn btn-orange">Enregister les modifications</button>
+                       
+                    </form>
                 </div>
-                <div class="history">
-                    <img src="../img/book.png" alt="">
-                    <span class="title">Le roi Behanzin</span>
-                    <span class="sub-title">1808 - 1864</span>
-                </div>
-                <div class="history">
-                    <img src="../img/book.png" alt="">
-                    <span class="title">Le roi Behanzin</span>
-                    <span class="sub-title">1808 - 1864</span>
-                </div>
-                <div class="history">
-                    <img src="../img/book.png" alt="">
-                    <span class="title">Le roi Behanzin</span>
-                    <span class="sub-title">1808 - 1864</span>
-                </div>
-                <div class="history">
-                    <img src="../img/book.png" alt="">
-                    <span class="title">Le roi Behanzin</span>
-                    <span class="sub-title">1808 - 1864</span>
-                </div>
-                <div class="history">
-                    <img src="../img/book.png" alt="">
-                    <span class="title">Le roi Behanzin</span>
-                    <span class="sub-title">1808 - 1864</span>
-                </div>
-                <div class="history">
-                    <img src="../img/book.png" alt="">
-                    <span class="title">Le roi Behanzin</span>
-                    <span class="sub-title">1808 - 1864</span>
-                </div>
-                <div class="history">
-                    <img src="../img/book.png" alt="">
-                    <span class="title">Le roi Behanzin</span>
-                    <span class="sub-title">1808 - 1864</span>
-                </div>
+                
+                
+                
             </div>
         </main>
     </div>

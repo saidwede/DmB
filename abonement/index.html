@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bibliothèque</title>
+    <title>Abonement</title>
     <link rel="stylesheet" href="../css/style.css">
     <meta name="theme-color" content="#c0e3ec"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -11,7 +11,6 @@
 </head>
 <body>
     <div class="lib">
-        <div class="white-circle"></div>
         <header>
             <div class="lib-tool-bar">
                 <a href="../bibliotheque/" class="logo-img">
@@ -42,50 +41,39 @@
             </div>
         </header>
         <main class="lib-container">
-            <h1>Choisi une histoire</h1>
-            <div class="griotte-img">
-                <img src="../img/griotte.png" alt="">
-            </div>
-            <div class="history-container">
-                <div class="history">
-                    <img src="../img/book.png" alt="">
-                    <span class="title">Le roi Behanzin</span>
-                    <span class="sub-title">1808 - 1864</span>
-                </div>
-                <div class="history">
-                    <img src="../img/book.png" alt="">
-                    <span class="title">Le roi Behanzin</span>
-                    <span class="sub-title">1808 - 1864</span>
-                </div>
-                <div class="history">
-                    <img src="../img/book.png" alt="">
-                    <span class="title">Le roi Behanzin</span>
-                    <span class="sub-title">1808 - 1864</span>
-                </div>
-                <div class="history">
-                    <img src="../img/book.png" alt="">
-                    <span class="title">Le roi Behanzin</span>
-                    <span class="sub-title">1808 - 1864</span>
-                </div>
-                <div class="history">
-                    <img src="../img/book.png" alt="">
-                    <span class="title">Le roi Behanzin</span>
-                    <span class="sub-title">1808 - 1864</span>
-                </div>
-                <div class="history">
-                    <img src="../img/book.png" alt="">
-                    <span class="title">Le roi Behanzin</span>
-                    <span class="sub-title">1808 - 1864</span>
-                </div>
-                <div class="history">
-                    <img src="../img/book.png" alt="">
-                    <span class="title">Le roi Behanzin</span>
-                    <span class="sub-title">1808 - 1864</span>
-                </div>
-                <div class="history">
-                    <img src="../img/book.png" alt="">
-                    <span class="title">Le roi Behanzin</span>
-                    <span class="sub-title">1808 - 1864</span>
+            <div class="card-contaner">
+                <a href="../bibliotheque/">
+                    <button class="std-btn btn-green" id="bnt-back">
+                        <i class="fa-solid fa-chevron-left" style="margin-right: 10px;"></i><span>Retour</span>
+                    </button>
+                </a>
+                <h1>Prendre un abonement</h1>
+                <div class="pricing-cards">
+                    <div class="pricing-card green-card">
+                        <h3>Basique</h3>
+                        <p class="price">5000/Mois</p>
+                        <p>
+                            Accédez à toutes nos histoires et aux mises à jour dans une période de 30 jours.
+                            <br><br>
+                            Et c'est tout!
+                        </p>
+                        <a href="./inscription/">
+                            <button class="std-btn btn-orange">Je m'abonne !</button>
+                        </a>
+                        
+                    </div>
+                    <div class="pricing-card orange-card">
+                        <h3>King</h3>
+                        <p class="price">15000/Mois</p>
+                        <p>
+                            Accédez à toutes nos histoires et aux mises à jour dans une période de 30 jours.
+                            <br><br>
+                            Intégrez notre communauté et permettez à votre enfant de participer à des évènements éducatifs
+                        </p>
+                        <a href="./inscription/">
+                            <button class="std-btn btn-green">Je m'abonne !</button>
+                        </a>
+                    </div>
                 </div>
             </div>
         </main>
