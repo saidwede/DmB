@@ -98,6 +98,12 @@ a{
     color:#E3A711;
     background-color: #ffffff;
 }
+.login-btn0{
+    background-color: transparent;
+    box-shadow: none;
+    border: 3px solid #0097B2;
+    color: #0097B2;
+}
 .banner-content{
     width: 100%;
     position: absolute;
@@ -344,8 +350,99 @@ textarea.form-section--input{
     justify-content: center;
     color: #FFFFFF;
 }
+.login-container{
+    background-color: #0097b244;
+    padding: 50px;
+}
+.login-container h1{
+    color: #00353E;
+    font-size: 48px;
+    font-family: minora-bolder;
+    margin-bottom: 50px;
+    text-align: center;
+}
+.login-container .logo-img{
+    width: auto;
+    margin-bottom: 20px;
+}
+.login-container .logo-img img{
+    width: 100%;
+    height: 150px;
+}
+.login-container, .login-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.login-form{
+    font-size: 24px;
+    width: 100%;
+    display: flex;
+    align-content: stretch;
+}
+.login-input-label{
+    margin-bottom: 15px;
+    width: 100%;
+}
+.login-form .login-input-cation{
+    display: block;
+    color: #CA940F;
+    font-size: 20px;
+    margin-bottom: 14px;
+}
+.login-form{
+    width: 492px;
+}
+.login-form a{
+    width: 100%;
+}
+.login-form button{
+    display: inline-block;
+    width: 100%;
+}
+.login-form button:nth-of-type(1){
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.login-form button:nth-of-type(2){
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+.login-form input, .login-form select{
+    border: 2px solid #676767;
+    border-radius: 45px;
+    height: 64px;
+    padding-left: 20px;
+    width: calc(100% - 20px);
+    display: inline-block;
+    background-color: transparent;  
+    font-size: 18px;
+}
+.login-form select{
+    -webkit-appearance: none;
+    width: 100%;
+}
+.login-form input::placeholder{
+    color: #676767;
+}
 .footer-content .form-section--title{
     margin-top: 10px;
+}
+input[type=date]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    display: none;
+}
+input[type=date]::-webkit-calendar-picker-indicator {
+    -webkit-appearance: none;
+    display: none;
+}
+input[type=date]::-webkit-datetime-edit-fields-wrapper{
+    color: #0097B2;
+    margin-top: 18px;
+}
+option[value=""][disabled] {
+    display: inline-block;
+    color: #676767;
 }
 @media  screen and (max-width: 900px) {
     .home-section {
@@ -544,9 +641,33 @@ textarea.form-section--input{
         color: #ffffff;
         font-family: minora-bold;
     }
+    .login-container h1{
+        font-size: 40px;
+    }
+    .login-form{
+        width: 340px;
+    }
+    .login-btn0{
+        background-color: transparent;
+        box-shadow: none;
+        border: 3px solid #0097B2;
+        color: #0097B2;
+    }
+    .login-form{
+        width: 100%;
+        /* max-width: 340px; */
+    }
+    .login-container {
+        background-color: #0097b244;
+        padding: 50px 20px;
+    }
 }
 @media screen and (max-width: 400px) {
     .banner .bg-img{
         transform: translateX(10%);
     }
+    .login-form{
+        width: 100%;
+    }
+    
 }

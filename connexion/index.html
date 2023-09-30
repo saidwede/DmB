@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <main class="login-container">
+        <div class="logo-img">
+            <img src="../img/logo.png" alt="">
+        </div>
+        <h1>Connectez-vous à votre bibliothèque</h1>
+        <form action="../bibliotheque/" class="login-form" method="post">
+            <label for="" class="login-input-label">
+                <span class="login-input-cation">Adresse mail du parent</span>
+                <input type="text" name="mail" id="mail" placeholder="kikirobet@gmail.com" required>
+            </label>
+            <label for="" class="login-input-label">
+                <span class="login-input-cation">Mot de passe</span>
+                <input type="password" name="password" id="password" placeholder="******" required>
+            </label>
+            <button type="submit" class="std-btn btn-orange">Je me connecte</button>
+            <div>ou</div>
+            <a href="../inscription/"><button type="button" class="std-btn login-btn0">J’ai deja n’ai pas encore de compte</button></a>
+            
+        </form>
+    </main>
+</body>
+</html>
