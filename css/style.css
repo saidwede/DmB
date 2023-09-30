@@ -690,6 +690,26 @@ option[value=""][disabled] {
     align-items: center;
     width: 100%;
 }
+.profile-container img{
+    margin-bottom: 30px;
+}
+.profile-container h2{
+    margin-bottom: 50px;
+}
+.form-section-title{
+    color: #1D242D;
+    font-family: minora-bolder;
+    font-size: 24px;
+}
+@media screen and (max-width: 1100px) and (min-width: 769px){
+    .lib-tool-bar .days-left{
+        position: static;
+        transform: none;
+    }
+    .lib-container {
+        padding: 0px 34px;
+    }
+}
 @media  screen and (max-width: 900px) {
     .home-section {
         padding: 10% 50px;
@@ -698,7 +718,7 @@ option[value=""][disabled] {
         width: calc(50% - 60px);
     }
 }
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 768px) {
     .tool-bar{
         height: 64px;
         align-items: center;
@@ -974,6 +994,12 @@ option[value=""][disabled] {
         margin-left: 0px;
         width: 200px;
         margin-bottom: 30px;
+    }
+    .profile-container > *{
+        max-width: calc(100% - 40px);
+    }
+    .profile-container form input{
+        width: calc(100% - 20px);
     }
 }
 @media screen and (max-width: 400px) {
