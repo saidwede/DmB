@@ -419,7 +419,7 @@ textarea.form-section--input{
     font-size: 18px;
 }
 .login-form select{
-    -webkit-appearance: none;
+    appearance: none;
     width: 100%;
 }
 .login-form input::placeholder{
