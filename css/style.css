@@ -18,6 +18,9 @@
     font-family: minora-normal;
 
 }
+html {
+    scroll-behavior: smooth;
+}
 ul{
     list-style: none;
 }
@@ -71,6 +74,11 @@ a{
 .banner{
     position: relative;
     display: flex;
+}
+.banner a{
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 .banner .bg-img{
     width: 100%;

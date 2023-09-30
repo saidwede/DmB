@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="theme-color" content="#fcb913"/>
     <title>Dahomey Book - Accueil</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=1.1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/19a3764d19.js" crossorigin="anonymous"></script>
 </head>
@@ -13,12 +13,16 @@
     <header>
         <div class="tool-bar">
             <div class="tool-bar-left-group">
-                <button class="top-btn btn-transparent btn-shadow">
-                    À propos
-                </button>
-                <button class="top-btn btn-transparent">
-                    Prix
-                </button>
+                <a href="#about-section">
+                    <button class="top-btn btn-transparent btn-shadow">
+                        À propos
+                    </button>
+                </a>
+                <a href="#pricing-section">
+                    <button class="top-btn btn-transparent">
+                        Prix
+                    </button>
+                </a>  
             </div>
             <div class="logo-img">
                 <img src="img/logo_white.png" alt="">
@@ -64,7 +68,8 @@
             <img src="img/cases_paysage.png" class="bg-img" alt="">
             <div class="banner-content">
                 <p class="welcome-text">Découvre l’histoire de ton pays en t’amusant !</p>
-                <button class="std-btn btn-green">Commencer maintenant</button>
+                <a href="./inscription/"><button class="std-btn btn-green">Commencer maintenant</button></a>
+                
             </div>
         </div>
         <section class="home-section green-section" id="about-section">
@@ -74,7 +79,9 @@
                 <br><br>
                 C’est pour cela que book a vu le jour. Son objectif est simple. Rendre l’histoire de nos peuples facile d’accès tout en donnant envie aux enfant de voyager en compagnie de notre mascotte.
             </p>
-            <button class="std-btn btn-orange">Je crée mon compte maintenant</button>
+            <a href="./inscription/">
+                <button class="std-btn btn-orange">Je crée mon compte maintenant</button>
+            </a>
         </section>
         <section class="home-section white-section pricing-section" id="pricing-section" >
             <h2 class="section-title">Nos prix</h2>
@@ -87,7 +94,10 @@
                         <br><br>
                         Et c'est tout!
                     </p>
-                    <button class="std-btn btn-orange">Je m'abonne !</button>
+                    <a href="./inscription/">
+                        <button class="std-btn btn-orange">Je m'abonne !</button>
+                    </a>
+                    
                 </div>
                 <div class="pricing-card orange-card">
                     <h3>King</h3>
@@ -97,7 +107,9 @@
                         <br><br>
                         Intégrez notre communauté et permettez à votre enfant de participer à des évènements éducatifs
                     </p>
-                    <button class="std-btn btn-green">Je m'abonne !</button>
+                    <a href="./inscription/">
+                        <button class="std-btn btn-green">Je m'abonne !</button>
+                    </a>
                 </div>
             </div>
         </section>
