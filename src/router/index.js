@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { useAuthUserStore } from '@/stores/authUser'
 import HomeView from '../views/HomeView.vue'
 import HomeMasterLayout from '../components/HomeMasterLayout.vue'
 import AppMasterLayout from '../components/AppMasterLayout.vue'
@@ -20,6 +21,15 @@ const router = createRouter({
       path: '/app/',
       name: 'app',
       component: AppMasterLayout,
+      beforeEnter: (to, from) => {
+        const userState = useAuthUserStore()
+        if(!userState.user){
+          console.log(userState.user)
+          return {name: "connexion"}
+        }else{
+          return true
+        }
+      },
       children:[
         {path: '',
         component: LibraryView},
@@ -33,6 +43,14 @@ const router = createRouter({
     },
     {
       path: '/connexion',
+      beforeEnter: (to, from) => {
+        const userState = useAuthUserStore()
+        if(userState.user){
+          return {name: "app"}
+        }else{
+          return true
+        }
+      },
       name: 'connexion',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
@@ -42,6 +60,14 @@ const router = createRouter({
     {
       path: '/inscription',
       name: 'inscription',
+      beforeEnter: (to, from) => {
+        const userState = useAuthUserStore()
+        if(userState.user){
+          return {name: "app"}
+        }else{
+          return true
+        }
+      },
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
@@ -49,5 +75,8 @@ const router = createRouter({
     }
   ]
 })
-
+// router.beforeEach(async (to, from) => {
+//   const user = useAuthUserStore()
+//   return true
+// })
 export default router

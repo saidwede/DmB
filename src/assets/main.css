@@ -612,7 +612,7 @@ option[value=""][disabled] {
   margin-top: 0px;
 }
 .drop-down-item{
-  margin-top: 20px;
+  padding: 10px 0px;
   font-family: minora-bolder;
   color: #ffffff;
   font-size: 16px;

@@ -1,5 +1,33 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+    import { RouterLink, RouterView } from 'vue-router'
+    import axios from 'axios';
+    import { useAuthUserStore } from '@/stores/authUser'
+    import { ref } from 'vue';
+    const userState = useAuthUserStore()
+
+    const firstName = ref(userState.user.first_name)
+    const lastName = ref(userState.user.last_name)
+    const dateOfBirrth = ref(userState.user.date_of_birth)
+
+    axios.defaults.baseURL = "https://dahomey-api.000webhostapp.com/";
+
+    function submitForm(){
+        axios.post(
+            "update-user-info",
+            {
+                id: userState.user.id,
+                jwt_token: localStorage.getItem("jwt_token"),
+                "first_name": firstName.value,
+                "last_name": lastName.value,
+                "date_of_birth": dateOfBirrth.value
+            },
+            {withCredentials: true}
+        ).then((response) => {
+            userState.getUserInfos()
+            alert("Information mise à jour avec succès!")
+        })
+    }
+
 </script>
 <template>
     <div class="card-contaner">
@@ -13,18 +41,18 @@ import { RouterLink, RouterView } from 'vue-router'
             <h2 class="form-section-title">Photo de profile</h2>
             <img src="/img/person.png" alt="" srcset="">
             <button class="std-btn btn-green">Changer la photo de profile</button>
-            <form action="." class="login-form" >
+            <form @submit.prevent="submitForm" class="login-form" >
                 <label for="" class="login-input-label">
                     <span class="login-input-cation">Nom</span>
-                    <input type="text" name="last_name" id="last_name" placeholder="Exemple: kiki" required>
+                    <input type="text" v-model="lastName" name="last_name" id="last_name" placeholder="Exemple: kiki" required>
                 </label>
                 <label for="" class="login-input-label">
                     <span class="login-input-cation">Prénoms</span>
-                    <input type="text" name="first_name" id="first_name" placeholder="Exemple: Banbou" required>
+                    <input type="text" v-model="firstName" name="first_name" id="first_name" placeholder="Exemple: Banbou" required>
                 </label>
                 <label for="" class="login-input-label">
                     <span class="login-input-cation">Date de naissance</span>
-                    <input type="date" name="birth_date" id="birth_date" placeholder="Exemple: 09/12/2015" required>
+                    <input type="date" v-model="dateOfBirrth" name="birth_date" id="birth_date" placeholder="Exemple: 09/12/2015" required>
                 </label>
                 <button type="submit" class="std-btn btn-orange">Enregister les modifications</button>
                 

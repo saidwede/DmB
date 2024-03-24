@@ -1,5 +1,62 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+    import { RouterLink, RouterView } from 'vue-router'
+    import { ref } from 'vue';
+    import axios from 'axios';
+    import { useAuthUserStore } from '@/stores/authUser'
+    import {
+        openKkiapayWidget,
+        addKkiapayListener,
+        removeKkiapayListener,
+    } from "kkiapay";
+
+    axios.defaults.baseURL = "https://dahomey-api.000webhostapp.com/";
+    let kkiaPayPublicKey = '978e22b0ad6911eeb08c1b8cbd760182'; let isKkiaSandBox = true;
+
+
+    const userState = useAuthUserStore()
+    function subscribe(plan_id = 1, price = 1000){
+        openKkiapayWidget({
+            sandbox: isKkiaSandBox,
+            amount:price,
+            position:"center",
+            theme:"#0097B2",
+            email: userState.user.email,
+            phone: "",
+            name: userState.user.first_name+" "+userState.user.last_name,
+            key:kkiaPayPublicKey
+        });
+        addKkiapayListener('success', (response) => {
+            console.log(userState.user.id)
+            axios.post(
+                "subscribe",
+                {
+                    user_id: userState.user.id,
+                    plan_id: plan_id,
+                    payment_reference: response.transactionId
+                },
+                {withCredentials: true}
+            ).then((response) => {
+                console.log(response.data)
+                alert("Abonnement Activé!");
+                userState.checkSubscription()
+            }).catch((error) => {
+                alert("Echec!")
+                console.log(error)
+            })
+        });
+        addKkiapayListener('failed', () => {
+            alert("Echec du paiement!")
+        });
+        addKkiapayListener('insufficient_fund', () => {
+            alert("Echec du paiement!")
+        });
+        addKkiapayListener('processing_error', () => {
+            alert("Echec du paiement!")
+        });
+        addKkiapayListener('payment_declined', () => {
+            alert("Echec du paiement!")
+        });
+    }
 </script>
 <template>
     <div class="card-contaner">
@@ -18,9 +75,7 @@ import { RouterLink, RouterView } from 'vue-router'
                     <br><br>
                     Et c'est tout!
                 </p>
-                <a href="#">
-                    <button class="std-btn btn-orange">Je m'abonne !</button>
-                </a>
+                <button class="std-btn btn-orange" @click="subscribe(2, 5000)">Je m'abonne !</button>
                 
             </div>
             <div class="pricing-card orange-card">
@@ -31,9 +86,7 @@ import { RouterLink, RouterView } from 'vue-router'
                     <br><br>
                     Intégrez notre communauté et permettez à votre enfant de participer à des évènements éducatifs
                 </p>
-                <a href="#">
-                    <button class="std-btn btn-green">Je m'abonne !</button>
-                </a>
+                <button class="std-btn btn-green" @click="subscribe(1, 15000)">Je m'abonne !</button>
             </div>
         </div>
     </div>
