@@ -22,7 +22,7 @@
                 "new_password": password.value,
                 "old_password": oldPassword.value
             },
-            {withCredentials: true}
+            {withCredentials: true, headers: {'Content-Type': 'application/x-www-form-urlencoded'}}
         ).then((response) => {
             alert("Mot de passe mise à jour avec succès!")
         }).catch((erro) => {
@@ -37,7 +37,7 @@
                 jwt_token: localStorage.getItem("jwt_token"),
                 email: email.value,
             },
-            {withCredentials: true}
+            {withCredentials: true, headers: {'Content-Type': 'application/x-www-form-urlencoded'}}
         ).then((response) => {
             alert("Email mise à jour avec succès!")
             userState.getUserInfos()

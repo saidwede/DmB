@@ -28,7 +28,7 @@
                 "date_of_birth": dateOfBirrth.value,
                 "sex": sex.value
             },
-            {withCredentials: true}
+            {withCredentials: true, headers: {'Content-Type': 'application/x-www-form-urlencoded'}}
         ).then((response) => {
             localStorage.setItem("jwt_token", response.data.jwt)
             userState.setUser(response.data.user)

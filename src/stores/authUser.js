@@ -16,7 +16,7 @@ export const useAuthUserStore = defineStore('authUser', () => {
 
   function checkSubscription(){
     if(user){
-      axios.post("subscription-days-left", {user_id: user.value.id}, {withCredentials: true})
+      axios.post("subscription-days-left", {user_id: user.value.id}, {withCredentials: true, headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
       .then((response) => {
           dayLeft.value = response.data.days_left
       })
@@ -37,7 +37,7 @@ export const useAuthUserStore = defineStore('authUser', () => {
       {
         jwt_token: localStorage.getItem("jwt_token")
       },
-       {withCredentials: true})
+       {withCredentials: true, headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
     .then(response => {
       setUser(response.data.user)
     })

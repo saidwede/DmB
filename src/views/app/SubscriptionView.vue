@@ -34,7 +34,7 @@
                     plan_id: plan_id,
                     payment_reference: response.transactionId
                 },
-                {withCredentials: true}
+                {withCredentials: true, headers: {'Content-Type': 'application/x-www-form-urlencoded'}}
             ).then((response) => {
                 console.log(response.data)
                 alert("Abonnement Activé!");

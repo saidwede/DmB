@@ -21,7 +21,7 @@
                 "last_name": lastName.value,
                 "date_of_birth": dateOfBirrth.value
             },
-            {withCredentials: true}
+            {withCredentials: true, headers: {'Content-Type': 'application/x-www-form-urlencoded'}}
         ).then((response) => {
             userState.getUserInfos()
             alert("Information mise à jour avec succès!")

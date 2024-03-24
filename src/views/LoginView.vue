@@ -17,7 +17,7 @@
                 "email": email.value,
                 "password": password.value,
             },
-            {withCredentials: true}
+            {withCredentials: true, headers: {'Content-Type': 'application/x-www-form-urlencoded'}}
         ).then((response) => {
             //console.log(response.data)
             localStorage.setItem("jwt_token", response.data.jwt)
@@ -27,13 +27,23 @@
             alert("Email ou mot de pass incorrect!")
         })
     }
+    function test(){
+        axios.post("test", {data: "data"}, {
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+})
+        .then((res) => {
+            console.log(res.data)
+        }).catch((err)=> {
+            console.log(err)
+        })
+    }
 </script>
 <template>
     <main class="login-container">
         <RouterLink to="/" class="logo-img">
             <img src="/img/logo.png" alt="">
         </RouterLink>
-        <h1>Connectez-vous à votre bibliothèque</h1>
+        <h1 @click="test">Connectez-vous à votre bibliothèque</h1>
         <form @submit.prevent="submitForm" class="login-form" >
             <label for="" class="login-input-label">
                 <span class="login-input-cation">Adresse mail du parent</span>
