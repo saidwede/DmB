@@ -4,7 +4,7 @@
     import { ref } from 'vue';
     import axios from 'axios';
 
-    axios.defaults.baseURL = "https://dahomey-api.000webhostapp.com/";
+    axios.defaults.baseURL = "http://localhost:8888/";
     const userState = useAuthUserStore()
     userState.checkSubscription()
     
@@ -35,7 +35,7 @@ function logout(){
                             <RouterLink to="/app/abonement" class="drop-down-item text-orange">Abonement</RouterLink>
                             <RouterLink to="/app/profile" class="drop-down-item">Modifier le profile</RouterLink>
                             <RouterLink to="/app/parametre-compte" class="drop-down-item">Parametre du compte</RouterLink>
-                            <div class="drop-down-item" id="sm-signout">
+                            <div @click="logout" class="drop-down-item" id="sm-signout">
                                 <button class="std-btn btn-orange">Se déconnecter</button>
                             </div>
                         </div>

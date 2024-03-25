@@ -4,7 +4,7 @@ import router from '../router/index'
 import axios from "axios"
 
 export const useAuthUserStore = defineStore('authUser', () => {
-  axios.defaults.baseURL = "https://dahomey-api.000webhostapp.com/";
+  axios.defaults.baseURL = "http://localhost:8888/";
   const user = ref(JSON.parse(localStorage.getItem('user') || false))
   const dayLeft = ref(0)
   console.log(user.value)

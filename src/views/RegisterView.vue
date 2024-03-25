@@ -16,7 +16,7 @@
 
     
 
-    axios.defaults.baseURL = "https://dahomey-api.000webhostapp.com/";
+    axios.defaults.baseURL = "http://localhost:8888/";
     function submitForm(){
         axios.post(
             "register",
