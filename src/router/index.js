@@ -46,7 +46,7 @@ const router = createRouter({
       beforeEnter: (to, from) => {
         const userState = useAuthUserStore()
         if(userState.user){
-          return {name: "app"}
+          return {path: "/app/"}
         }else{
           return true
         }
@@ -63,7 +63,7 @@ const router = createRouter({
       beforeEnter: (to, from) => {
         const userState = useAuthUserStore()
         if(userState.user){
-          return {name: "app"}
+          return {path: "/app/"}
         }else{
           return true
         }
