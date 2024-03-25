@@ -73,10 +73,15 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/RegisterView.vue')
     }
-  ]
+  ],
+  scrollBehavior(to, from, savedPosition) {
+    // always scroll to top
+    return { top: 0 }
+  },
 })
 // router.beforeEach(async (to, from) => {
 //   const user = useAuthUserStore()
 //   return true
 // })
+
 export default router
