@@ -16,10 +16,13 @@
   margin: 0px;
   padding: 0px;
   font-family: minora-normal;
-
 }
 button{
   cursor: pointer;
+}
+button:disabled,
+button[disabled]{
+  filter: opacity(0.5);
 }
 html {
   scroll-behavior: smooth;
@@ -96,6 +99,9 @@ a{
   border-radius: 64px;
   font-family: minora-bolder;
   box-shadow: inset rgba(0, 0, 0, 0.25) 0px -10px 0px;
+}
+.std-btn span{
+  font-family: inherit;
 }
 .btn-green{
   color: #ffffff;
@@ -408,7 +414,9 @@ textarea.form-section--input{
   width: 100%;
 }
 .login-form button{
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
 }
 .login-form button:nth-of-type(1){

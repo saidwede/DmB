@@ -3,15 +3,18 @@
     import axios from 'axios';
     import { useAuthUserStore } from '@/stores/authUser'
     import { ref } from 'vue';
+    import LoadingAnim from '../../components/LoadingAnim.vue';
     const userState = useAuthUserStore()
 
     const firstName = ref(userState.user.first_name)
     const lastName = ref(userState.user.last_name)
     const dateOfBirrth = ref(userState.user.date_of_birth)
+    const dataLoading = ref(false)
 
     axios.defaults.baseURL = "https://dahomey-api.000webhostapp.com/";
 
     function submitForm(){
+        dataLoading.value = true
         axios.post(
             "update-user-info",
             {
@@ -25,6 +28,8 @@
         ).then((response) => {
             userState.getUserInfos()
             alert("Information mise à jour avec succès!")
+        }).finally(() => {
+            dataLoading.value = false
         })
     }
 
@@ -54,7 +59,10 @@
                     <span class="login-input-cation">Date de naissance</span>
                     <input type="date" v-model="dateOfBirrth" name="birth_date" id="birth_date" placeholder="Exemple: 09/12/2015" required>
                 </label>
-                <button type="submit" class="std-btn btn-orange">Enregister les modifications</button>
+                <button type="submit" class="std-btn btn-orange" :disabled="dataLoading">
+                    <span v-if="!dataLoading">Enregister les modifications</span>
+                    <LoadingAnim v-if="dataLoading"></LoadingAnim>
+                </button>
                 
             </form>
         </div>

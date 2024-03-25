@@ -3,6 +3,7 @@
     import { ref } from 'vue';
     import axios from 'axios';
     import { useAuthUserStore } from '@/stores/authUser'
+    import LoadingAnim from '../../components/LoadingAnim.vue';
 
     axios.defaults.baseURL = "https://dahomey-api.000webhostapp.com/";
 
@@ -13,7 +14,11 @@
     const confirmPassword = ref("")
     const oldPassword = ref("")
 
+    const loadingPassword = ref(false);
+    const loadingEmail = ref(false);
+
     function submitPasswordForm(){
+        loadingPassword.value = true
         axios.post(
             "update-password",
             {
@@ -27,9 +32,12 @@
             alert("Mot de passe mise à jour avec succès!")
         }).catch((erro) => {
             alert(erro.response.data)
+        }).finally(() => {
+            loadingPassword.value = false;
         })
     }
     function submitEmailForm(){
+        loadingEmail.value = true
         axios.post(
             "update-email",
             {
@@ -44,6 +52,8 @@
             console.log(response.data)
         }).catch((erro) => {
             alert("Une erreur s'est produite!")
+        }).finally(() => {
+            loadingEmail.value = false
         })
     }
 </script>
@@ -62,7 +72,10 @@
                     <span class="login-input-cation">Adresse mail du parent</span>
                     <input type="email" v-model="email" name="mail" id="mail" placeholder="kikirobet@gmail.com" required>
                 </label>
-                <button type="submit" class="std-btn btn-orange">Changer l’email</button>
+                <button type="submit" class="std-btn btn-orange" :disabled="loadingEmail">
+                    <span v-if="!loadingEmail">Changer l’email</span>
+                    <LoadingAnim v-if="loadingEmail"></LoadingAnim>
+                </button>
             </form>
             <h2 class="form-section-title" style="margin-top: 40px;">Changer le mot de passe</h2>
             <form @submit.prevent="submitPasswordForm" class="login-form" >
@@ -78,7 +91,10 @@
                     <span class="login-input-cation">Reepétez le mot de passe</span>
                     <input type="password" v-model="confirmPassword" name="confirm_password" id="confirm_password" placeholder="******" required>
                 </label>
-                <button type="submit" class="std-btn btn-orange">Changer le mot de passe</button>
+                <button type="submit" class="std-btn btn-orange" :disabled="loadingPassword">
+                    <span v-if="!loadingPassword">Changer le mot de passe</span>
+                    <LoadingAnim v-if="loadingPassword"></LoadingAnim>
+                </button>
             </form>
         </div>
         

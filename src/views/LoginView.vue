@@ -4,13 +4,16 @@
     import router from '../router/index'
     import axios from 'axios';
     import { useAuthUserStore } from '@/stores/authUser'
+    import LoadingAnim from '../components/LoadingAnim.vue';
 
     axios.defaults.baseURL = "https://dahomey-api.000webhostapp.com/";
     const email = ref("")
     const password = ref("")
     const userState = useAuthUserStore()
+    const loading = ref(false)
 
     function submitForm(){
+        loading.value = true
         axios.post(
             "login",
             {
@@ -25,6 +28,8 @@
             router.push('/app')
         }).catch((erro) => {
             alert("Email ou mot de pass incorrect!")
+        }).finally(() => {
+            loading.value = false
         })
     }
     function test(){
@@ -53,7 +58,10 @@
                 <span class="login-input-cation">Mot de passe</span>
                 <input type="password" v-model="password" name="password" id="password" placeholder="******" required>
             </label>
-            <button type="submit" class="std-btn btn-orange">Je me connecte</button>
+            <button type="submit" class="std-btn btn-orange" :disabled="loading">
+                <span v-if="!loading">Je me connecte</span>
+                <LoadingAnim v-if="loading"></LoadingAnim>
+            </button>
             <div>ou</div>
             <RouterLink to="/inscription"><button type="button" class="std-btn login-btn0">Je n’ai pas encore de compte</button></RouterLink>
             

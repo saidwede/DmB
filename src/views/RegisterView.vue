@@ -13,11 +13,13 @@
     const confirmPassword = ref("") 
     const dateOfBirrth = ref("")
     const sex = ref("")
+    const loading = ref(false)
 
     
 
     axios.defaults.baseURL = "https://dahomey-api.000webhostapp.com/";
     function submitForm(){
+        loading.value = true
         axios.post(
             "register",
             {
@@ -33,6 +35,8 @@
             localStorage.setItem("jwt_token", response.data.jwt)
             userState.setUser(response.data.user)
             router.push('/app')
+        }).finally(() => {
+            loading.value = false
         })
     }
 </script>
@@ -71,7 +75,10 @@
                 <span class="login-input-cation">Créer un mot de passe</span>
                 <input type="password" v-model="password" name="password" id="password" placeholder="Mot de passe" required>
             </label>
-            <button type="submit" class="std-btn btn-orange">Je crée mon compte</button>
+            <button type="submit" class="std-btn btn-orange" :disabled="loading">
+                <span v-if="!loading">Je crée mon compte</span>
+                <LoadingAnim v-if="loading"></LoadingAnim>
+            </button>
             <div>ou</div>
             <RouterLink to="/connexion"><button type="button" class="std-btn login-btn0">J'ai déjà un compte</button></RouterLink>
             

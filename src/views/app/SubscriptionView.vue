@@ -8,13 +8,16 @@
         addKkiapayListener,
         removeKkiapayListener,
     } from "kkiapay";
+    import LoadingAnim from '../../components/LoadingAnim.vue';
 
     axios.defaults.baseURL = "https://dahomey-api.000webhostapp.com/";
     let kkiaPayPublicKey = '978e22b0ad6911eeb08c1b8cbd760182'; let isKkiaSandBox = true;
 
+    const loading = ref(false)
 
     const userState = useAuthUserStore()
     function subscribe(plan_id = 1, price = 1000){
+        loading.value = true
         openKkiapayWidget({
             sandbox: isKkiaSandBox,
             amount:price,
@@ -42,19 +45,25 @@
             }).catch((error) => {
                 alert("Echec!")
                 console.log(error)
+            }).finally(() => {
+                loading.value = false
             })
         });
         addKkiapayListener('failed', () => {
             alert("Echec du paiement!")
+            loading.value = false
         });
         addKkiapayListener('insufficient_fund', () => {
             alert("Echec du paiement!")
+            loading.value = false
         });
         addKkiapayListener('processing_error', () => {
             alert("Echec du paiement!")
+            loading.value = false
         });
         addKkiapayListener('payment_declined', () => {
             alert("Echec du paiement!")
+            loading.value = false
         });
     }
 </script>
@@ -75,7 +84,10 @@
                     <br><br>
                     Et c'est tout!
                 </p>
-                <button class="std-btn btn-orange" @click="subscribe(2, 5000)">Je m'abonne !</button>
+                <button class="std-btn btn-orange" @click="subscribe(2, 5000)" :disabled="loading">
+                    <span v-if="!loading">Je m'abonne !</span>
+                    <LoadingAnim v-if="loading"></LoadingAnim>
+                </button>
                 
             </div>
             <div class="pricing-card orange-card">
@@ -86,7 +98,10 @@
                     <br><br>
                     Intégrez notre communauté et permettez à votre enfant de participer à des évènements éducatifs
                 </p>
-                <button class="std-btn btn-green" @click="subscribe(1, 15000)">Je m'abonne !</button>
+                <button class="std-btn btn-green" @click="subscribe(2, 15000)" :disabled="loading">
+                    <span v-if="!loading">Je m'abonne !</span>
+                    <LoadingAnim v-if="loading"></LoadingAnim>
+                </button>
             </div>
         </div>
     </div>
