@@ -9,7 +9,7 @@
     const lastName = ref(userState.user.last_name)
     const dateOfBirrth = ref(userState.user.date_of_birth)
 
-    axios.defaults.baseURL = "http://localhost:8888/";
+    axios.defaults.baseURL = "https://dahomey-api.000webhostapp.com/";
 
     function submitForm(){
         axios.post(

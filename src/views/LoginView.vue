@@ -5,7 +5,7 @@
     import axios from 'axios';
     import { useAuthUserStore } from '@/stores/authUser'
 
-    axios.defaults.baseURL = "http://localhost:8888/";
+    axios.defaults.baseURL = "https://dahomey-api.000webhostapp.com/";
     const email = ref("")
     const password = ref("")
     const userState = useAuthUserStore()

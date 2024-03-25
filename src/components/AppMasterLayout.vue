@@ -4,7 +4,7 @@
     import { ref } from 'vue';
     import axios from 'axios';
 
-    axios.defaults.baseURL = "http://localhost:8888/";
+    axios.defaults.baseURL = "https://dahomey-api.000webhostapp.com/";
     const userState = useAuthUserStore()
     userState.checkSubscription()
     

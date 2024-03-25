@@ -9,7 +9,7 @@
         removeKkiapayListener,
     } from "kkiapay";
 
-    axios.defaults.baseURL = "http://localhost:8888/";
+    axios.defaults.baseURL = "https://dahomey-api.000webhostapp.com/";
     let kkiaPayPublicKey = '978e22b0ad6911eeb08c1b8cbd760182'; let isKkiaSandBox = true;
 
 
