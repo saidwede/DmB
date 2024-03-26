@@ -33,6 +33,9 @@
         text-align: center;
         z-index: 99;
     }
+    .container span{
+        text-align: center;
+    }
     .alert{
         background-color:#FCB913;
         color: #000000;
