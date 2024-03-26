@@ -46,26 +46,26 @@
                 uiStore.displayToast("Abonnement Activé!");
                 userState.checkSubscription()
             }).catch((error) => {
-                uiStore.displayToast("Echec!")
+                uiStore.displayToast("Echec!", "error")
                 console.log(error)
             }).finally(() => {
                 loading.value = false
             })
         });
         addKkiapayListener('failed', () => {
-            uiStore.displayToast("Echec du paiement!")
+            uiStore.displayToast("Echec du paiement!", "error")
             loading.value = false
         });
         addKkiapayListener('insufficient_fund', () => {
-            uiStore.displayToast("Echec du paiement!")
+            uiStore.displayToast("Echec du paiement!", "error")
             loading.value = false
         });
         addKkiapayListener('processing_error', () => {
-            uiStore.displayToast("Echec du paiement!")
+            uiStore.displayToast("Echec du paiement!", "error")
             loading.value = false
         });
         addKkiapayListener('payment_declined', () => {
-            uiStore.displayToast("Echec du paiement!")
+            uiStore.displayToast("Echec du paiement!", "error")
             loading.value = false
         });
     }

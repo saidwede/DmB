@@ -34,7 +34,7 @@
         ).then((response) => {
             uiStore.displayToast("Mot de passe mise à jour avec succès!")
         }).catch((erro) => {
-            uiStore.displayToast(erro.response.data)
+            uiStore.displayToast(erro.response.data, "error")
         }).finally(() => {
             loadingPassword.value = false;
         })
@@ -54,7 +54,7 @@
             userState.getUserInfos()
             console.log(response.data)
         }).catch((erro) => {
-            uiStore.displayToast("Une erreur s'est produite!")
+            uiStore.displayToast("Une erreur s'est produite!", "error")
         }).finally(() => {
             loadingEmail.value = false
         })
