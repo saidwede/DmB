@@ -4,6 +4,9 @@
     import axios from 'axios';
     import { useAuthUserStore } from '@/stores/authUser'
     import LoadingAnim from '../../components/LoadingAnim.vue';
+    import { useUiStore } from '@/stores/uiStore'
+    
+    const uiStore = useUiStore()
 
     axios.defaults.baseURL = "https://dahomey-api.000webhostapp.com/";
 
@@ -29,9 +32,9 @@
             },
             {withCredentials: true, headers: {'Content-Type': 'application/x-www-form-urlencoded'}}
         ).then((response) => {
-            alert("Mot de passe mise à jour avec succès!")
+            uiStore.displayToast("Mot de passe mise à jour avec succès!")
         }).catch((erro) => {
-            alert(erro.response.data)
+            uiStore.displayToast(erro.response.data)
         }).finally(() => {
             loadingPassword.value = false;
         })
@@ -47,11 +50,11 @@
             },
             {withCredentials: true, headers: {'Content-Type': 'application/x-www-form-urlencoded'}}
         ).then((response) => {
-            alert("Email mise à jour avec succès!")
+            uiStore.displayToast("Email mise à jour avec succès!")
             userState.getUserInfos()
             console.log(response.data)
         }).catch((erro) => {
-            alert("Une erreur s'est produite!")
+            uiStore.displayToast("Une erreur s'est produite!")
         }).finally(() => {
             loadingEmail.value = false
         })

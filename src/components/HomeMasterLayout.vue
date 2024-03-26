@@ -46,8 +46,8 @@
                         </RouterLink>
                     </li>
                     <li class="menu-btn-link">
-                        <RouterLink to="/inscription" class="">
-                            <button class="std-btn btn-white">S'inscrire</button>
+                        <RouterLink to="/connexion" class="">
+                            <button class="std-btn btn-white">Se connecter</button>
                         </RouterLink>
                     </li>
                 </ul>

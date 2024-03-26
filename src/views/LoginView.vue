@@ -5,12 +5,17 @@
     import axios from 'axios';
     import { useAuthUserStore } from '@/stores/authUser'
     import LoadingAnim from '../components/LoadingAnim.vue';
+    import TostView from '../components/TostView.vue';
+    import { useUiStore } from '@/stores/uiStore'
+    
+    const uiStore = useUiStore()
 
     axios.defaults.baseURL = "https://dahomey-api.000webhostapp.com/";
     const email = ref("")
     const password = ref("")
     const userState = useAuthUserStore()
     const loading = ref(false)
+    
 
     function submitForm(){
         loading.value = true
@@ -27,7 +32,7 @@
             userState.setUser(response.data.user)
             router.push('/app')
         }).catch((erro) => {
-            alert("Email ou mot de pass incorrect!")
+            uiStore.displayToast("Email ou mot de passe incorrect!", "error")
         }).finally(() => {
             loading.value = false
         })
@@ -44,6 +49,7 @@
     }
 </script>
 <template>
+    <TostView></TostView>
     <main class="login-container">
         <RouterLink to="/" class="logo-img">
             <img src="/img/logo.png" alt="">

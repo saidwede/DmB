@@ -4,6 +4,12 @@
     import { useAuthUserStore } from '@/stores/authUser'
     import { ref } from 'vue';
     import LoadingAnim from '../../components/LoadingAnim.vue';
+    import { useUiStore } from '@/stores/uiStore'
+    
+    const uiStore = useUiStore()
+
+
+
     const userState = useAuthUserStore()
 
     const firstName = ref(userState.user.first_name)
@@ -27,7 +33,7 @@
             {withCredentials: true, headers: {'Content-Type': 'application/x-www-form-urlencoded'}}
         ).then((response) => {
             userState.getUserInfos()
-            alert("Information mise à jour avec succès!")
+            uiStore.displayToast("Information mise à jour avec succès!")
         }).finally(() => {
             dataLoading.value = false
         })

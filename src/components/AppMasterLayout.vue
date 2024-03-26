@@ -3,6 +3,10 @@
     import { useAuthUserStore } from '@/stores/authUser'
     import { ref } from 'vue';
     import axios from 'axios';
+    import TostView from './TostView.vue';
+    import { useUiStore } from '@/stores/uiStore'
+    
+    const uiStore = useUiStore()
 
     axios.defaults.baseURL = "https://dahomey-api.000webhostapp.com/";
     const userState = useAuthUserStore()
@@ -16,6 +20,7 @@ function logout(){
 }
 </script>
 <template>
+    <TostView></TostView>
     <div class="lib">
         <div class="white-circle"></div>
         <header>

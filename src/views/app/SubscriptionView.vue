@@ -9,6 +9,9 @@
         removeKkiapayListener,
     } from "kkiapay";
     import LoadingAnim from '../../components/LoadingAnim.vue';
+    import { useUiStore } from '@/stores/uiStore'
+    
+    const uiStore = useUiStore()
 
     axios.defaults.baseURL = "https://dahomey-api.000webhostapp.com/";
     let kkiaPayPublicKey = '978e22b0ad6911eeb08c1b8cbd760182'; let isKkiaSandBox = true;
@@ -40,29 +43,29 @@
                 {withCredentials: true, headers: {'Content-Type': 'application/x-www-form-urlencoded'}}
             ).then((response) => {
                 console.log(response.data)
-                alert("Abonnement Activé!");
+                uiStore.displayToast("Abonnement Activé!");
                 userState.checkSubscription()
             }).catch((error) => {
-                alert("Echec!")
+                uiStore.displayToast("Echec!")
                 console.log(error)
             }).finally(() => {
                 loading.value = false
             })
         });
         addKkiapayListener('failed', () => {
-            alert("Echec du paiement!")
+            uiStore.displayToast("Echec du paiement!")
             loading.value = false
         });
         addKkiapayListener('insufficient_fund', () => {
-            alert("Echec du paiement!")
+            uiStore.displayToast("Echec du paiement!")
             loading.value = false
         });
         addKkiapayListener('processing_error', () => {
-            alert("Echec du paiement!")
+            uiStore.displayToast("Echec du paiement!")
             loading.value = false
         });
         addKkiapayListener('payment_declined', () => {
-            alert("Echec du paiement!")
+            uiStore.displayToast("Echec du paiement!")
             loading.value = false
         });
     }

@@ -50,6 +50,10 @@ a{
 .tool-bar-right-group{
   margin-right: 90px;
 }
+.tool-bar-right-group, .tool-bar-left-group{
+  display: flex;
+  gap: 4px;
+}
 .top-btn{
   padding: 24px 16px 24px 16px;
   border-radius: 8px 8px 0px 0px;
@@ -370,6 +374,7 @@ textarea.form-section--input{
 .login-container{
   background-color: #0097b244;
   padding: 50px;
+  min-height: 100vh;
 }
 .login-container h1{
   color: #00353E;

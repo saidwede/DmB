@@ -4,6 +4,10 @@
     import { ref } from 'vue';
     import axios from 'axios';
     import { useAuthUserStore } from '@/stores/authUser'
+    import TostView from '../components/TostView.vue';
+    import { useUiStore } from '@/stores/uiStore'
+    
+    const uiStore = useUiStore()
     const userState = useAuthUserStore()
 
     const firstName = ref("")
@@ -41,6 +45,7 @@
     }
 </script>
 <template>
+    <TostView></TostView>
     <main class="login-container">
         <RouterLink to="/" class="logo-img">
             <img src="/img/logo.png" alt="">
