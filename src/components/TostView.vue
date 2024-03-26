@@ -17,6 +17,7 @@
         top: -100%;
         left: 0px;
         width: 100vw;
+        z-index: 99;
     }
     .container{
         position: fixed;
@@ -30,6 +31,7 @@
         transition: ease all 0.7s;
         width: 220px;
         text-align: center;
+        z-index: 99;
     }
     .alert{
         background-color:#FCB913;

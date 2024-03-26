@@ -34,6 +34,8 @@
         ).then((response) => {
             userState.getUserInfos()
             uiStore.displayToast("Information mise à jour avec succès!")
+        }).catch((error) => {
+            uiStore.displayToast("Echec de la mise à jour! Veuillez reéssayer.", "alert")
         }).finally(() => {
             dataLoading.value = false
         })
