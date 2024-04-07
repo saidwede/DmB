@@ -13,7 +13,7 @@
     
     const uiStore = useUiStore()
 
-    axios.defaults.baseURL = "https://dahomey-api.000webhostapp.com/";
+    axios.defaults.baseURL = "https://api.dahomeybook.com";
     let kkiaPayPublicKey = '978e22b0ad6911eeb08c1b8cbd760182'; let isKkiaSandBox = true;
 
     const loading = ref(false)
@@ -40,7 +40,7 @@
                     plan_id: plan_id,
                     payment_reference: response.transactionId
                 },
-                {withCredentials: true, headers: {'Content-Type': 'application/x-www-form-urlencoded'}}
+                {withCredentials: true}
             ).then((response) => {
                 console.log(response.data)
                 uiStore.displayToast("Abonnement Activé!");

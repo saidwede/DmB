@@ -8,7 +8,7 @@
     
     const uiStore = useUiStore()
 
-    axios.defaults.baseURL = "https://dahomey-api.000webhostapp.com/";
+    axios.defaults.baseURL = "https://api.dahomeybook.com";
     const userState = useAuthUserStore()
     userState.checkSubscription()
     

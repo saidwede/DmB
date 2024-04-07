@@ -21,7 +21,7 @@
 
     
 
-    axios.defaults.baseURL = "https://dahomey-api.000webhostapp.com/";
+    axios.defaults.baseURL = "https://api.dahomeybook.com";
     function submitForm(){
         loading.value = true
         axios.post(
@@ -34,7 +34,7 @@
                 "date_of_birth": dateOfBirrth.value,
                 "sex": sex.value
             },
-            {withCredentials: true, headers: {'Content-Type': 'application/x-www-form-urlencoded'}}
+            {withCredentials: true}
         ).then((response) => {
             localStorage.setItem("jwt_token", response.data.jwt)
             userState.setUser(response.data.user)

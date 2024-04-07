@@ -4,7 +4,7 @@ import router from '../router/index'
 import axios from "axios"
 
 export const useAuthUserStore = defineStore('authUser', () => {
-  axios.defaults.baseURL = "https://dahomey-api.000webhostapp.com/";
+  axios.defaults.baseURL = "https://api.dahomeybook.com";
   const user = ref(JSON.parse(localStorage.getItem('user') || false))
   const dayLeft = ref(0)
   console.log(user.value)
@@ -16,7 +16,7 @@ export const useAuthUserStore = defineStore('authUser', () => {
 
   function checkSubscription(){
     if(user){
-      axios.post("subscription-days-left", {user_id: user.value.id}, {withCredentials: true, headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
+      axios.post("subscription-days-left", {user_id: user.value.id}, {withCredentials: true})
       .then((response) => {
           dayLeft.value = response.data.days_left
       })
@@ -37,7 +37,7 @@ export const useAuthUserStore = defineStore('authUser', () => {
       {
         jwt_token: localStorage.getItem("jwt_token")
       },
-       {withCredentials: true, headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
+       {withCredentials: true})
     .then(response => {
       setUser(response.data.user)
     })

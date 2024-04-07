@@ -17,7 +17,7 @@
     const dateOfBirrth = ref(userState.user.date_of_birth)
     const dataLoading = ref(false)
 
-    axios.defaults.baseURL = "https://dahomey-api.000webhostapp.com/";
+    axios.defaults.baseURL = "https://api.dahomeybook.com";
 
     function submitForm(){
         dataLoading.value = true
@@ -30,7 +30,7 @@
                 "last_name": lastName.value,
                 "date_of_birth": dateOfBirrth.value
             },
-            {withCredentials: true, headers: {'Content-Type': 'application/x-www-form-urlencoded'}}
+            {withCredentials: true}
         ).then((response) => {
             userState.getUserInfos()
             uiStore.displayToast("Information mise à jour avec succès!")

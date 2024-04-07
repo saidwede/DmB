@@ -10,7 +10,7 @@
     
     const uiStore = useUiStore()
 
-    axios.defaults.baseURL = "https://dahomey-api.000webhostapp.com/";
+    axios.defaults.baseURL = "https://api.dahomeybook.com";
     const email = ref("")
     const password = ref("")
     const userState = useAuthUserStore()
@@ -25,7 +25,7 @@
                 "email": email.value,
                 "password": password.value,
             },
-            {withCredentials: true, headers: {'Content-Type': 'application/x-www-form-urlencoded'}}
+            {withCredentials: true}
         ).then((response) => {
             //console.log(response.data)
             localStorage.setItem("jwt_token", response.data.jwt)
@@ -38,9 +38,7 @@
         })
     }
     function test(){
-        axios.post("test", {data: "data"}, {
-    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-})
+        axios.post("test", {data: "data"})
         .then((res) => {
             console.log(res.data)
         }).catch((err)=> {

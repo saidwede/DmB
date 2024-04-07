@@ -8,7 +8,7 @@
     
     const uiStore = useUiStore()
 
-    axios.defaults.baseURL = "https://dahomey-api.000webhostapp.com/";
+    axios.defaults.baseURL = "https://api.dahomeybook.com";
 
 
     const userState = useAuthUserStore()
@@ -30,7 +30,7 @@
                 "new_password": password.value,
                 "old_password": oldPassword.value
             },
-            {withCredentials: true, headers: {'Content-Type': 'application/x-www-form-urlencoded'}}
+            {withCredentials: true}
         ).then((response) => {
             uiStore.displayToast("Mot de passe mise à jour avec succès!")
         }).catch((erro) => {
@@ -48,7 +48,7 @@
                 jwt_token: localStorage.getItem("jwt_token"),
                 email: email.value,
             },
-            {withCredentials: true, headers: {'Content-Type': 'application/x-www-form-urlencoded'}}
+            {withCredentials: true}
         ).then((response) => {
             uiStore.displayToast("Email mise à jour avec succès!")
             userState.getUserInfos()
