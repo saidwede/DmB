@@ -5,7 +5,14 @@ import axios from "axios"
 
 export const useAuthUserStore = defineStore('authUser', () => {
   axios.defaults.baseURL = "https://api.dahomeybook.com";
-  const user = ref(JSON.parse(localStorage.getItem('user') || false))
+  const user = ref(null)
+  try {
+    user.value = ref(JSON.parse(localStorage.getItem('user') || false))
+  } catch (error) {
+    localStorage.removeItem('user')
+    user.value = false
+  }
+  
   const dayLeft = ref(0)
   console.log(user.value)
 

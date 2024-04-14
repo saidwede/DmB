@@ -45,7 +45,7 @@ const router = createRouter({
       path: '/connexion',
       beforeEnter: (to, from) => {
         const userState = useAuthUserStore()
-        if(userState.user){
+        if(userState.user.value){
           return {path: "/app/"}
         }else{
           return true

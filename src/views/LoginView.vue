@@ -32,6 +32,7 @@
             userState.setUser(response.data.user)
             router.push('/app')
         }).catch((erro) => {
+            console.log(erro)
             uiStore.displayToast("Email ou mot de passe incorrect!", "error")
         }).finally(() => {
             loading.value = false

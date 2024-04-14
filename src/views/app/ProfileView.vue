@@ -69,9 +69,8 @@
     }
     function saveProfilePic(){
         if(profilCanva.value != null){
-            profilePic.value = profilCanva.value.toDataURL()
             hideModal()
-            const blob = dataURLtoBlob(profilePic.value);
+            const blob = dataURLtoBlob(profilCanva.value.toDataURL());
             const formData = new FormData();
             formData.append('profile_pic', blob);
 
@@ -82,7 +81,7 @@
                 }
             })
             .then(response => {
-                console.log(response.data);
+                profilePic.value = response.data.new_profile_pic_url
             })
             .catch(error => {
                 console.error(error);

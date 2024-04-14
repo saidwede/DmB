@@ -11,6 +11,8 @@
     axios.defaults.baseURL = "https://api.dahomeybook.com";
     const userState = useAuthUserStore()
     userState.checkSubscription()
+
+    console.log(userState.user)
     
 
 
