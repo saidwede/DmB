@@ -10,7 +10,7 @@
     
     const uiStore = useUiStore()
 
-    axios.defaults.baseURL = "https://api.dahomeybook.com";
+    axios.defaults.baseURL = "http://localhost:8888";
     const email = ref("")
     const password = ref("")
     const userState = useAuthUserStore()

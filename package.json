@@ -15,6 +15,7 @@
     "kkiapay": "^2.0.23",
     "pinia": "^2.1.7",
     "vue": "^3.3.4",
+    "vue-advanced-cropper": "^2.8.8",
     "vue-router": "^4.2.5"
   },
   "devDependencies": {

@@ -21,7 +21,7 @@
 
     
 
-    axios.defaults.baseURL = "https://api.dahomeybook.com";
+    axios.defaults.baseURL = "http://localhost:8888";
     function submitForm(){
         loading.value = true
         axios.post(

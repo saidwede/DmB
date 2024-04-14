@@ -646,7 +646,7 @@ option[value=""][disabled] {
   height: 0px;
   width: 100vw;
   height: 100vh;
-  z-index: 6;
+  z-index: 10;
   display: none;
   background-color: #0000004d;
 }
