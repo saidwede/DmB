@@ -36,7 +36,7 @@
     })
     const img = ref("")
 
-    axios.defaults.baseURL = "http://localhost:8888";
+    axios.defaults.baseURL = "https://api.dahomeybook.com";
 
     function submitForm(){
         dataLoading.value = true

@@ -13,7 +13,7 @@
     
     const uiStore = useUiStore()
 
-    axios.defaults.baseURL = "http://localhost:8888";
+    axios.defaults.baseURL = "https://api.dahomeybook.com";
     let kkiaPayPublicKey = '978e22b0ad6911eeb08c1b8cbd760182'; let isKkiaSandBox = true;
 
     const loading = ref(false)

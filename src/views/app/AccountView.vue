@@ -8,7 +8,7 @@
     
     const uiStore = useUiStore()
 
-    axios.defaults.baseURL = "http://localhost:8888";
+    axios.defaults.baseURL = "https://api.dahomeybook.com";
 
 
     const userState = useAuthUserStore()
