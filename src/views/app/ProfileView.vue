@@ -70,6 +70,7 @@
     function saveProfilePic(){
         if(profilCanva.value != null){
             hideModal()
+            uiStore.displayToast("Mise à jour en cours...")
             const blob = dataURLtoBlob(profilCanva.value.toDataURL());
             const formData = new FormData();
             formData.append('profile_pic', blob);
@@ -82,6 +83,7 @@
             })
             .then(response => {
                 profilePic.value = response.data.new_profile_pic_url
+                uiStore.displayToast("Photo de profile mise à jour avec succès!")
             })
             .catch(error => {
                 console.error(error);
