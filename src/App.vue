@@ -1,6 +1,17 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+
+let widget =  FedaPay.init({
+  public_key: 'pk_sandbox_4LYKqW0RSMGWORj5cRQtiQWt',
+  onComplete: (response) => {
+    console.log(reason)
+  }
+});
+
+function pay(){
+  widget.open();
+}
+
 </script>
 
 <template>

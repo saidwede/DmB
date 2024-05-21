@@ -14,6 +14,7 @@
     const uiStore = useUiStore()
 
     axios.defaults.baseURL = "https://api.dahomeybook.com";
+    let fedaPayPublicKey = 'pk_sandbox_4LYKqW0RSMGWORj5cRQtiQWt'; let fedaPayEnvironment = 'sandbox';
     let kkiaPayPublicKey = '978e22b0ad6911eeb08c1b8cbd760182'; let isKkiaSandBox = true;
 
     const loading = ref(false)
@@ -21,53 +22,45 @@
     const userState = useAuthUserStore()
     function subscribe(plan_id = 1, price = 1000){
         loading.value = true
-        openKkiapayWidget({
-            sandbox: isKkiaSandBox,
-            amount:price,
-            position:"center",
-            theme:"#0097B2",
-            email: userState.user.email,
-            phone: "",
-            name: userState.user.first_name+" "+userState.user.last_name,
-            key:kkiaPayPublicKey
+        let widget =  FedaPay.init({
+            environment: fedaPayEnvironment,
+            transaction: {
+                amount: price,
+                description: "plan"+plan_id
+            },
+            customer: {
+                email: userState.user.email,
+                firstname: userState.user.first_name,
+                lastname: userState.user.last_name
+            },
+            public_key: fedaPayPublicKey,
+            onComplete: (response) => {
+                if(response.reason == FedaPay.CHECKOUT_COMPLETED){
+                    axios.post(
+                        "subscribe",
+                        {
+                            user_id: userState.user.id,
+                            plan_id: plan_id,
+                            payment_reference: response.transaction.transaction_key
+                        },
+                        {withCredentials: true}
+                    ).then((response) => {
+                        console.log(response.data)
+                        uiStore.displayToast("Abonnement Activé!");
+                        userState.checkSubscription()
+                    }).catch((error) => {
+                        uiStore.displayToast("Echec!", "error")
+                        console.log(error)
+                    }).finally(() => {
+                        loading.value = false
+                    })
+                }else{
+                    uiStore.displayToast("Echec du paiement!", "error")
+                    loading.value = false
+                }
+            }
         });
-        addKkiapayListener('success', (response) => {
-            console.log(userState.user.id)
-            axios.post(
-                "subscribe",
-                {
-                    user_id: userState.user.id,
-                    plan_id: plan_id,
-                    payment_reference: response.transactionId
-                },
-                {withCredentials: true}
-            ).then((response) => {
-                console.log(response.data)
-                uiStore.displayToast("Abonnement Activé!");
-                userState.checkSubscription()
-            }).catch((error) => {
-                uiStore.displayToast("Echec!", "error")
-                console.log(error)
-            }).finally(() => {
-                loading.value = false
-            })
-        });
-        addKkiapayListener('failed', () => {
-            uiStore.displayToast("Echec du paiement!", "error")
-            loading.value = false
-        });
-        addKkiapayListener('insufficient_fund', () => {
-            uiStore.displayToast("Echec du paiement!", "error")
-            loading.value = false
-        });
-        addKkiapayListener('processing_error', () => {
-            uiStore.displayToast("Echec du paiement!", "error")
-            loading.value = false
-        });
-        addKkiapayListener('payment_declined', () => {
-            uiStore.displayToast("Echec du paiement!", "error")
-            loading.value = false
-        });
+        widget.open();
     }
 </script>
 <template>
