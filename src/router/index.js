@@ -4,6 +4,7 @@ import HomeView from '../views/HomeView.vue'
 import HomeMasterLayout from '../components/HomeMasterLayout.vue'
 import AppMasterLayout from '../components/AppMasterLayout.vue'
 import LibraryView from '../views/app/LibraryView.vue'
+import StoryView from '../views/app/StoryView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -24,28 +25,49 @@ const router = createRouter({
       beforeEnter: (to, from) => {
         const userState = useAuthUserStore()
         if(!userState.user){
-          console.log(userState.user)
           return {name: "connexion"}
         }else{
           return true
         }
       },
       children:[
-        {path: '',
-        component: LibraryView},
-        {path: 'abonement',
-        component: () => import('../views/app/SubscriptionView.vue')},
-        {path: 'profile',
-        component: () => import('../views/app/ProfileView.vue')},
-        {path: 'parametre-compte',
-        component: () => import('../views/app/AccountView.vue')}
+        {
+          path: '',
+          name: 'library',
+          component: LibraryView
+        },
+        {
+          path: 'histoires',
+          name: 'stories',
+          component: LibraryView // Define the component for this route
+        },
+        { 
+          path: 'abonement',
+          name: 'subscription',
+          component: () => import('../views/app/SubscriptionView.vue')
+        },
+        {
+          path: 'profile',
+          name: 'profile',
+          component: () => import('../views/app/ProfileView.vue')
+        },
+        {
+          path: 'parametre-compte',
+          name: 'account-settings',
+          component: () => import('../views/app/AccountView.vue')
+        },
+        {
+          path: 'histoires/:id',
+          name: 'story',
+          component: StoryView // Define the component for this route
+        }
       ]
     },
     {
       path: '/connexion',
       beforeEnter: (to, from) => {
         const userState = useAuthUserStore()
-        if(userState.user.value){
+        if(userState.user){
           return {path: "/app/"}
         }else{
           return true

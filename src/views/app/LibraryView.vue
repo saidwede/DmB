@@ -7,45 +7,15 @@ import { RouterLink, RouterView } from 'vue-router'
         <img src="/img/griotte.png" alt="">
     </div>
     <div class="history-container">
-        <div class="history">
+        <RouterLink to="/app/histoires/1" class="history">
             <img src="/img/book.png" alt="">
             <span class="title">Le roi Behanzin</span>
             <span class="sub-title">1808 - 1864</span>
-        </div>
-        <div class="history">
+        </RouterLink>
+        <RouterLink to="/app/histoires/1" class="history">
             <img src="/img/book.png" alt="">
             <span class="title">Le roi Behanzin</span>
             <span class="sub-title">1808 - 1864</span>
-        </div>
-        <div class="history">
-            <img src="/img/book.png" alt="">
-            <span class="title">Le roi Behanzin</span>
-            <span class="sub-title">1808 - 1864</span>
-        </div>
-        <div class="history">
-            <img src="/img/book.png" alt="">
-            <span class="title">Le roi Behanzin</span>
-            <span class="sub-title">1808 - 1864</span>
-        </div>
-        <div class="history">
-            <img src="/img/book.png" alt="">
-            <span class="title">Le roi Behanzin</span>
-            <span class="sub-title">1808 - 1864</span>
-        </div>
-        <div class="history">
-            <img src="/img/book.png" alt="">
-            <span class="title">Le roi Behanzin</span>
-            <span class="sub-title">1808 - 1864</span>
-        </div>
-        <div class="history">
-            <img src="/img/book.png" alt="">
-            <span class="title">Le roi Behanzin</span>
-            <span class="sub-title">1808 - 1864</span>
-        </div>
-        <div class="history">
-            <img src="/img/book.png" alt="">
-            <span class="title">Le roi Behanzin</span>
-            <span class="sub-title">1808 - 1864</span>
-        </div>
+        </RouterLink>
     </div>
 </template>

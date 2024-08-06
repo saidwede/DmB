@@ -1,8 +1,8 @@
 <script setup>
     import { RouterLink, RouterView } from 'vue-router'
-    import { ref } from 'vue';
+    import { ref, watch } from 'vue';
     import router from '../router/index'
-    import axios from 'axios';
+    import axios from '../lib/axiosInstance'
     import { useAuthUserStore } from '@/stores/authUser'
     import LoadingAnim from '../components/LoadingAnim.vue';
     import TostView from '../components/TostView.vue';
@@ -10,30 +10,28 @@
     
     const uiStore = useUiStore()
 
-    axios.defaults.baseURL = "https://api.dahomeybook.com";
     const email = ref("")
     const password = ref("")
     const userState = useAuthUserStore()
     const loading = ref(false)
     
+    watch(() => userState.user, (newValue) => {
+            if (newValue) {
+                router.push('/app');
+            } 
+        }, { immediate: true }
+    );
 
     function submitForm(){
+        //uiStore.displayToast("Email ou mot de passe incorrect!", "error")
         loading.value = true
-        axios.post(
-            "login",
-            {
-                "email": email.value,
-                "password": password.value,
-            },
-            {withCredentials: true}
-        ).then((response) => {
-            //console.log(response.data)
-            localStorage.setItem("jwt_token", response.data.jwt)
-            userState.setUser(response.data.user)
+        userState.login({
+            email: email.value,
+            password: password.value,
+        }).then((user) => {
             router.push('/app')
-        }).catch((erro) => {
-            console.log(erro)
-            uiStore.displayToast("Email ou mot de passe incorrect!", "error")
+        }).catch( (erro) => {
+            uiStore.displayToast("Email ou mot de passe incorrect!", "error");
         }).finally(() => {
             loading.value = false
         })
