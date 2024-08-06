@@ -28,7 +28,7 @@ function showModal() {
 }
 const modalContentRef = ref(null)
 document.addEventListener('click', (event) => {
-  if (!modalContentRef.value.contains(event.target)) {
+  if (!modalContentRef?.value?.contains(event.target)) {
     hideModal()
   }
 })

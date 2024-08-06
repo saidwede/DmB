@@ -28,25 +28,41 @@ watch(() => userState.user, (newValue) => {
 );
 function submitForm() {
   loading.value = true
-  axios
-    .post(
-      'register',
-      {
+  userState.register({
         first_name: firstName.value,
         last_name: lastName.value,
         email: email.value,
         password: password.value,
         date_of_birth: dateOfBirrth.value,
         sex: sex.value
-      }
-    )
-    .then((response) => {
-      userState.setUser(response.data.user)
+  }).then((response) => {
       router.push('/app')
-    })
-    .finally(() => {
+  }).catch((error) => {
+    if(error.response){
+      switch (error.response.data.error_code) {
+        case "INCOMPLETE_DATA":
+          uiStore.displayToast("Renseigner tous les champs.", "error");
+          break;
+        case "INVALID_EMAIL_FORMAT":
+          uiStore.displayToast("Email invalide!", "error");
+          break;
+        case "WEAK_PASSWORD":
+          uiStore.displayToast("Mot de passe faible!", "error");
+          break;
+        case "EMAIL_ALREADY_EXISTS":
+          uiStore.displayToast("Email déjà inscrit!", "error");
+          break;
+        default:
+          uiStore.displayToast("Oops, inscription impossible! Veuillez reéssayer", "alert");
+          break;
+      }
+      
+    }else{
+      uiStore.displayToast("Oops, inscription impossible! Veuillez reéssayer", "alert");
+    }
+  }).finally(() => {
       loading.value = false
-    })
+  })
 }
 </script>
 <template>

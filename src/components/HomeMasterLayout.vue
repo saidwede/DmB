@@ -61,7 +61,7 @@
     <footer>
         <div class="footer-content">
             <img src="/img/logo_white.png" alt="">
-            <p>@fait avec amour par Danhomey Book , 2023</p>
+            <p>@fait avec amour par Danhomey Book , 2024</p>
         </div>
     </footer>
 </template>
