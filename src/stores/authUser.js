@@ -29,15 +29,17 @@ export const useAuthUserStore = defineStore('authUser', () => {
   }
   function login({email, password}){
     userLoading.value = true
-    return axios.post("login",{email, password})
-    .then((response) => {
-      setUser(response.data.user)
-      return response.data.user
-    }).catch((erro) => {
+    try {
+      return axios.post("login",{email, password})
+      .then((response) => {
+        setUser(response.data.user)
+        return response.data.user
+      })
+    } catch (error) {
       throw erro;
-    }).finally(() => {
+    } finally {
       userLoading.value = false
-    })
+    }
   }
   function register({
     first_name,

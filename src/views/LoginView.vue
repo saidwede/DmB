@@ -22,19 +22,24 @@
         }, { immediate: true }
     );
 
-    function submitForm(){
+    async function submitForm(){
         //uiStore.displayToast("Email ou mot de passe incorrect!", "error")
         loading.value = true
-        userState.login({
-            email: email.value,
-            password: password.value,
-        }).then((user) => {
+        try {
+            await userState.login({
+                email: email.value,
+                password: password.value,
+            });
             router.push('/app')
-        }).catch( (erro) => {
-            uiStore.displayToast("Email ou mot de passe incorrect!", "error");
-        }).finally(() => {
+        } catch (error) {
+            if(error.response?.status == 401){
+                uiStore.displayToast("Email ou mot de passe incorrect!", "error");
+            }else{
+                uiStore.displayToast("Oops, connexion impossible! Veuillez reéssayer", "alert");
+            }
+        } finally {
             loading.value = false
-        })
+        }
     }
     function test(){
         axios.post("test", {data: "data"})
