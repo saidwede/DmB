@@ -77,7 +77,7 @@ export const useAuthUserStore = defineStore('authUser', () => {
   async function getUserInfos(){
     user.value = JSON.parse(localStorage.getItem("user") || null)
     try {
-      let response = await axios.post("user-info")
+      let response = await axios.get("user-info")
       setUser(response.data.user)
     } catch (error) {
       if(error.response.status == 401){
