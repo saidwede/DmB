@@ -5,6 +5,8 @@ import HomeMasterLayout from '../components/HomeMasterLayout.vue'
 import AppMasterLayout from '../components/AppMasterLayout.vue'
 import LibraryView from '../views/app/LibraryView.vue'
 import StoryView from '../views/app/StoryView.vue'
+import ForgotPasswordView from '../views/ForgotPasswordView.vue'
+import ResetPasswordView from '../views/ResetPasswordView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -86,6 +88,16 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/LoginView.vue')
+    },
+    {
+      path: '/forgot-password',
+      name: 'forgot-password',
+      component: ForgotPasswordView
+    },
+    {
+      path: '/reset-password',
+      name: 'reset-password',
+      component: ResetPasswordView
     },
     {
       path: '/inscription',

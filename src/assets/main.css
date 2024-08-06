@@ -729,6 +729,14 @@ option[value=""][disabled] {
   font-family: minora-bolder;
   font-size: 24px;
 }
+.forgot-password {
+  font-size: 18px;
+  font-weight: 900;
+  text-align: right;
+  display: block;
+  color: #0097B2;
+  padding-top: 5px;
+}
 @media screen and (max-width: 1100px) and (min-width: 769px){
   .lib-tool-bar .days-left{
       position: static;
