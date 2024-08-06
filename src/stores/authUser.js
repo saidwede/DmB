@@ -48,7 +48,7 @@ export const useAuthUserStore = defineStore('authUser', () => {
     sex
   }){
     userLoading.value = true
-    return axios.post(
+    return axios.post("register",
       {
         first_name,
         last_name,
