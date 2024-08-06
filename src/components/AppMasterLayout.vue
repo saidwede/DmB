@@ -11,7 +11,7 @@ userState.checkSubscription();
 
 watch(() => userState.user, (newValue) => {
   if (!newValue) {
-    router.push('/connexion');
+    router.push('/');
   } 
 }, { immediate: true });
 function logout() {

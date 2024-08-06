@@ -13,6 +13,14 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeMasterLayout,
+      beforeEnter: (to, from) => {
+        const userState = useAuthUserStore()
+        if(userState.user){
+          return {path: "/app/"}
+        }else{
+          return true
+        }
+      },
       children:[
         {path: '/',
         component: HomeView}
