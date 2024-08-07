@@ -138,7 +138,7 @@ const faq = ref();
           >{{ QA.question }}<span class="caret-down">&#9660;</span></span
         >
         <span class="answer"
-          >{{ QA.answer }}</span
+          ><br>{{ QA.answer }}</span
         >
       </p>
     </div>
