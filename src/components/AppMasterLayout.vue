@@ -4,18 +4,22 @@ import { useAuthUserStore } from '@/stores/authUser'
 import { ref, watch } from 'vue'
 import axios from '../lib/axiosInstance'
 import TostView from './TostView.vue'
-import router from '../router/index';
+import router from '../router/index'
 
 const userState = useAuthUserStore()
-userState.checkSubscription();
+userState.checkSubscription()
 
-watch(() => userState.user, (newValue) => {
-  if (!newValue) {
-    router.push('/');
-  } 
-}, { immediate: true });
+watch(
+  () => userState.user,
+  (newValue) => {
+    if (!newValue) {
+      router.push('/')
+    }
+  },
+  { immediate: true }
+)
 function logout() {
-  userState.logout();
+  userState.logout()
 }
 </script>
 <template>
@@ -34,7 +38,8 @@ function logout() {
           </div>
           <div class="profil-button drop-down-toggle">
             <span class="profil-pc">{{
-              (userState.user.first_name || '').substring(0, 1) + (userState.user.last_name || '').substring(0, 1)
+              (userState.user.first_name || '').substring(0, 1) +
+              (userState.user.last_name || '').substring(0, 1)
             }}</span>
             <i class="fa-solid fa-caret-down"></i>
             <div class="drop-down-menu">
@@ -64,10 +69,10 @@ function logout() {
     <div class="modal-content">
       <h2>{{ userState.dayLeft }} jour restant !</h2>
       <p v-if="userState.dayLeft < 1" class="modal-message">
-        Vous n’avez plus accès aux histoires de Danhomey book
+        Vous n’avez plus accès aux histoires de Dahomey book
       </p>
       <p v-if="userState.dayLeft > 0" class="modal-message">
-        Vous avez toujours accès aux histoires de Danhomey book
+        Vous avez toujours accès aux histoires de Dahomey book
       </p>
       <p>Réabonnez-vous pour y accéder à nouveau</p>
       <RouterLink to="/app/abonement">
