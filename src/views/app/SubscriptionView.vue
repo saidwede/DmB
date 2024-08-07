@@ -74,27 +74,27 @@ function subscribe(plan_id = 1, price = 1000) {
     <div class="pricing-cards">
       <div class="pricing-card green-card">
         <h3>Basique</h3>
-        <p class="price">5000/Mois</p>
+        <p class="price">3000/Mois</p>
         <p>
-          Accédez à toutes nos histoires et aux mises à jour dans une période de 30 jours.
-          <br /><br />
-          Et c'est tout!
+            Accès complet à toutes les histoires disponibles.
+            <br><br>Mises à jour régulières avec de nouveaux contenus.
+            <br><br>Possibilité de participer à des événements éducatifs organisés par Dahomey Book.
+            <br><br>Support client prioritaire.
         </p>
-        <button class="std-btn btn-orange" @click="subscribe(2, 5000)" :disabled="loading">
+        <button class="std-btn btn-orange" @click="subscribe(2, 3000)" :disabled="loading">
           <span v-if="!loading">Je m'abonne !</span>
           <LoadingAnim v-if="loading"></LoadingAnim>
         </button>
       </div>
       <div class="pricing-card orange-card">
-        <h3>King</h3>
-        <p class="price">15000/Mois</p>
+        <h3>Plan Famille</h3>
+        <p class="price">8000/Mois</p>
         <p>
-          Accédez à toutes nos histoires et aux mises à jour dans une période de 30 jours.
-          <br /><br />
-          Intégrez notre communauté et permettez à votre enfant de participer à des évènements
-          éducatifs
+            Accès à des ressources supplémentaires pour les parents, y compris des guides pédagogiques et des activités ludiques.
+            <br><br>Invitations exclusives à des événements communautaires et culturels.
+            <br><br>Support client premium.
         </p>
-        <button class="std-btn btn-green" @click="subscribe(2, 15000)" :disabled="loading">
+        <button class="std-btn btn-green" @click="subscribe(2, 8000)" :disabled="loading">
           <span v-if="!loading">Je m'abonne !</span>
           <LoadingAnim v-if="loading"></LoadingAnim>
         </button>
