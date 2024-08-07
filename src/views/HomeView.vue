@@ -56,7 +56,7 @@ const faq = ref();
     </RouterLink>
   </section>
   <section class="white-section pricing-section" id="pricing-section">
-    <h2 class="section-title">Nos prix</h2>
+    <h2 class="section-title">Nos offres</h2>
     <div class="pricing-cards-container">
         <div class="pricing-cards">
             <div class="pricing-card orange-card">
@@ -131,7 +131,7 @@ const faq = ref();
     </div>
   </section>
   <section class="home-section white-section faq-section">
-    <h2 class="section-title">Vous avez des question ?</h2>
+    <h2 class="section-title">FAQ - Dahomey Book</h2>
     <div v-for="QA in faqArray" class="qw-card">
       <p>
         <span class="question"
