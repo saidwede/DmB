@@ -87,7 +87,8 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/LoginView.vue')
+      component: () => import('../views/LoginView.vue'),
+      meta: { preventZoom: true }
     },
     {
       path: '/forgot-password',
@@ -121,9 +122,30 @@ const router = createRouter({
     return { top: 0 }
   },
 })
-// router.beforeEach(async (to, from) => {
-//   const user = useAuthUserStore()
-//   return true
-// })
+router.beforeEach((to, from, next) => {
+  if (to.meta.preventZoom) {
+    setViewport();
+  } else {
+    resetViewport();
+  }
+  next();
+});
+
+export function setViewport() {
+  let metaTag = document.querySelector('meta[name=viewport]');
+  if (!metaTag) {
+    metaTag = document.createElement('meta');
+    metaTag.name = "viewport";
+    document.head.appendChild(metaTag);
+  }
+  metaTag.content = "width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0";
+}
+
+export function resetViewport() {
+  const metaTag = document.querySelector('meta[name=viewport]');
+  if (metaTag) {
+    metaTag.content = "width=device-width, initial-scale=1.0"; // or your default value
+  }
+}
 
 export default router
