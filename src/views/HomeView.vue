@@ -190,3 +190,10 @@ const faq = ref();
     </div>
   </section>
 </template>
+
+<style scoped>
+  html, body {
+    touch-action: pan-x pan-y;
+    -ms-touch-action: pan-x pan-y;
+  }
+</style>
